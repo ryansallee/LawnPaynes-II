@@ -1,0 +1,42 @@
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Styles/services.css")" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/Scripts/services_fadein.js")" type="text/javascript"></script>
+}
+
+
+
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2 class="body-title"> Services</h2>
+<!-- Wrapper Container for the lawn-care and landscaping divs -->
+<div class="service-wrap">
+    <!-- Div to be targeted by the services_fadein.js div so that it fades in upon page load -->
+    <div class="lawn-care">
+        <h2>Lawn Care Services</h2>
+        <img alt="A well maintained lawn" src="@Url.Content("~/Content/img/Lawn_Care.jpg")">
+        <ul class="service-lists">
+            <li>Cut</li>
+            <li>Trimming</li>
+            <li>Fertiziation</li>
+            <li>Aeration</li>
+        </ul>
+    </div>
+
+    <!-- Div to be targeted by the services_fadein.js div so that it fades in upon page load -->
+    <div class="landscaping">
+        <h2>Landscaping Services</h2>
+        <img alt="An edged flower bed" src="@Url.Content("~/Content/img/Edging.jpg")">
+        <ul class="service-lists">
+            <li>Flower Beds</li>
+            <li>Edging</li>
+            <li>Tree Care</li>
+            <li>Shrubbery</li>
+        </ul>
+    </div>
+</div>

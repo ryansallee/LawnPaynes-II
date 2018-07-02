@@ -1,0 +1,122 @@
+﻿/* Base Styles */
+
+
+/* The basestyles.css sets the body display to flex. To prevent any issues with IE 10 and IE: 11
+with flex due to a bug with IE in respect to flex, the flex 1 0 auto is used. */
+
+#spring-alert,
+.main-content {
+    flex: 1 0 auto;
+}
+
+
+/* Message */
+
+
+/* This will set the style for the #alert div that will be supplied content byt the spring.js script */
+
+#alert {
+    margin: 10px auto 0 auto;
+    box-shadow: 5px 5px 5px rgb(104, 109, 109);
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+}
+
+    #alert p {
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+
+
+/*---Main Content Styles---*/
+
+.main-content {
+    background: white;
+    width: 97.5%;
+    margin: 10px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgb(113, 119, 119);
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+    .main-content a {
+        color: rgb(33, 128, 33);
+        font-weight: bold;
+    }
+
+.intro-container {
+    width: 90%;
+    margin: 0 auto;
+    align-content: space-around;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+img[alt^="A recent"] {
+    width: 50%;
+    float: left;
+    padding: 10px 10px 0 0;
+    border-radius: 25px;
+}
+
+
+/* Media Queries */
+
+
+/*-----Tablet------*/
+
+@media (min-width: 640px) {
+    /* Alert Styles */
+    #alert {
+        width: 95%;
+        margin-top: 20px;
+    }
+    /* Main Content Styles  */
+    .main-content {
+        width: 95%;
+        margin: 20px auto 55% auto;
+    }
+
+    .intro-container {
+        width: 92.5%;
+    }
+
+    img[alt^="A recent"] {
+        width: 55%;
+    }
+    /* Footer Styles */
+    .footer {
+        margin-top: -10%;
+    }
+}
+
+@media (min-width: 990px) {
+    /* Alert Styles */
+    #alert {
+        width: 92.5%;
+        
+    }
+    /* Content Styles */
+    .main-content {
+        width: 92.5%;
+        margin: 20px auto 20px auto;
+        padding: 10px 0 25px 0;
+    }
+
+    .intro-container {
+        width: 90%;
+    }
+
+    img[alt^="A recent"] {
+        width: 40%;
+    }
+    /* Footer Styles */
+    .footer {
+        margin-top: 0;
+    }
+}

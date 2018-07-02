@@ -1,0 +1,20 @@
+﻿@* The Razor code below allows us to have multiple separate layouts based on if the user is in the 
+    front-facing Home area of the Web app or the Admin section for the site owner.
+    *@
+
+
+@{ 
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    string cLayout="";
+
+    if (controller == "Admin" || controller == "Customer")
+    {
+        cLayout = "~/Views/Shared/_CustomerManager.cshtml";
+    }
+
+    else
+    {
+        cLayout = "~/Views/Shared/_Layout.cshtml";
+    }
+    Layout = cLayout;
+}

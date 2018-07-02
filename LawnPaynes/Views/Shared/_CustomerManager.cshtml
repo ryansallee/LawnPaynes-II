@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#218021">
+    <link rel="stylesheet" href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")" />
+    <link href="@Url.Content("https://fonts.googleapis.com/css?family=Fjalla+One")" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <h1 class="navbar-brand">@Html.ActionLink("Lawn Paynes Customer Manager", "Index", "Admin")</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon "></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li>@Html.ActionLink("Home Area", "Index", "Home", null, new { @class = "nav-item nav-link" })</li>
+                <li>@Html.ActionLink("Customers", "Index", "Customer", null, new { @class = "nav-item nav-link" })</li>
+                <li>@Html.ActionLink("Our Work", "OurWork", "Home", new { @class = " nav-item nav-link" })</li>
+               
+            </ul>
+        </div>
+
+    </nav>
+</header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <script src="@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* Our_Work Styles */
+
+
+/* Slideshow Styles */
+
+
+/* Since the lawn_slide_show.js file will not execute any slideshow on viewports less than 640px in width
+the images in the slide container are flexed with the default flex direction and are stacked upon one another */
+
+.slide-container {
+    flex: 1 0 auto;
+    background: linear-gradient(180deg, white, rgb(76, 191, 236));
+    width: 97.5%;
+    margin: 10px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgb(113, 119, 119);
+    justify-content: center;
+}
+
+
+/* Limit the width of the images to 75% of their parent div so that they are large enough for detail on
+small screens, but there is some white space for visibility */
+
+img {
+    display: block;
+    max-width: 75%;
+    max-height: 75%;
+    border-radius: 5px;
+    margin: 10px auto;
+    box-shadow: 5px 5px 5px rgb(113, 119, 119);
+}
+
+figcaption {
+    color: black;
+    text-align: center;
+    font: .75em;
+    font-weight: bold;
+    margin-top: 1px;
+}
+
+button:nth-of-type(1n+2){
+    display: none;
+}
+
+@media (min-width: 640px) {
+    /* Slideshow Styles */
+    /* Limit the width of the slide container and give margin down from the header */
+    .slide-container {
+        margin: 1% auto 1% auto;
+        padding: 10px 20px 3px 20px;
+        width: 77%;
+    }
+    /* Ensures that the images fill the .slide divs and remove the margins from the base styles */
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto 0 auto;
+        box-shadow: none;
+    }
+    /* Hide all of the images exept the first so that the first .slide div displays on page load  */
+    .slides:nth-of-type(1n+2) {
+        display: none;
+    }
+    /* Float the control buttons and give space between with margin */
+    #previous {
+        float: left;
+        margin-right: 20px;
+    }
+    #next {
+        float: right;
+    }
+    #resume {
+        float: right;
+        margin-right: 20px;
+    }
+    /* Style and make sure that the control buttons display on tablet sized screens and larger */
+    button {
+        border-radius: 5px;
+        background-color: rgb(33, 128, 33);
+        color: white;
+        margin-bottom: 1px;
+        border: none;
+        box-shadow: 1px 1px 1px black;
+        font-size: 1.5em;
+    }
+}
+
+
+/* Desktop and Laptop */
+
+@media (min-width: 1200px) {
+    /* Decrease the width of the .slide-container further so that the .slide-container can be completely seen on a large viewport
+    without scrolling. */
+    .slide-container {
+        margin: 1% auto 1% auto;
+        padding: 8px 20px 3px 20px;
+        width: 30%;
+    }
+    /* Decrease the font size of the text in the buttons in larger screens */
+    button {
+        font-size: 1.05em;
+    }
+}

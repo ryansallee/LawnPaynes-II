@@ -1,0 +1,42 @@
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Styles/our_workstyle.css")" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts {
+    <script src="@Url.Content("~/Content/Scripts/lawn_slide_show.js")" type="text/javascript"></script>
+}
+
+
+
+@{
+    ViewBag.Title = "Our Work";
+}
+
+<!-- This div will be manipulated on viewports 640px and wider by lawn_slide_show.js script for a slideshow -->
+<div class="slide-container">
+    <div class="slides">
+        <img src="@Url.Content("~/Content/img/landscaping_1.JPG")" alt="An edged flower bed">
+        <figcaption>Edging</figcaption>
+    </div>
+
+    <div class="slides">
+        <img src="@Url.Content("~/Content/img/landscaping_2.JPG")" alt="A recently mowed lawn with flower beds containing Hostas and bushes">
+        <figcaption>Freshly manicured lawn!</figcaption>
+    </div>
+
+    <div class="slides">
+        <img src="@Url.Content("~/Content/img/landscaping_3.JPG")" alt="A recently mowed lawn with flower beds containing various plants">
+        <figcaption>Keeping the lawn maintained!</figcaption>
+    </div>
+
+    <div class="slides ">
+        <img src="@Url.Content("~/Content/img/landscaping_4.JPG")" alt="An arrangement of flowers in a heart-shape">
+        <figcaption>Heart flower arrangement!</figcaption>
+    </div>
+    <!-- Slideshow buttons to advance slides manually back and forth as well as pause and resume the show -->
+    <button id="previous"> &lt; </button>
+    <button id="pause">Pause</button>
+    <button id="next"> &gt; </button>
+    <button id="resume">Resume</button>
+</div>
+

@@ -1,0 +1,129 @@
+﻿body {
+    background: linear-gradient(0deg, white, rgb(33, 128, 33));
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h1,
+h3 {
+    font-family: 'Fjalla One', sans-serif;
+    font-style: italic;
+}
+
+h1 {
+    color: rgb(33, 128, 33);
+}
+
+a,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    background: linear-gradient(0deg, white, rgb(76, 191, 236));
+}
+
+h1 a {
+    font-size: 1.5em;
+    color: rgb(33, 128, 33);
+    font-family: 'Fjalla One', sans-serif;
+    font-style: italic;
+}
+
+
+.navbar li {
+    background: rgb(33, 128, 33);
+    text-align: center;
+    margin: 0 20% 2PX 20%;
+    border-radius: 25px;
+   font-size: 1.25em
+}
+
+.navbar-nav {
+    color: white;
+}
+
+.navbar-toggler {
+    border: rgb(33, 128, 33) 3px solid; 
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+.footer,
+.foot-name {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+}
+
+.footer {
+    background-color: rgb(175, 174, 174);
+    flex-direction: column;
+}
+
+.foot-name {
+    margin: 5px 0 10px 0;
+    border-bottom: 1px solid black;
+    flex-direction: row;
+}
+
+.foot-nav {
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.ryan,
+.disclaimer,
+.cool-stuff{
+    font-size: .5em;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .footer {
+        max-height: 110px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar li {
+            border-radius: 25px 100px 5px 100px;
+            margin: auto 10px;
+            color: white;
+    }
+
+    .navbar a {
+        padding: 0 15px;
+    }
+
+    .navbar li {
+        padding: 0 15px;
+    }
+
+    /* To give some depth and draw attention to the list items in the .main-nav class, I added a simple animation with a subtle box-shadow whenever
+    a visitor hovers over the list items in the main nav. */
+    @keyframes main-nav-boxshadow {
+        0% {
+            box-shadow: none;
+        }
+
+        50% {
+            box-shadow: 2px 2px 2px black;
+        }
+
+        100% {
+            box-shadow: none;
+        }
+    }
+
+    .navbar li:hover {
+        animation: main-nav-boxshadow 3s infinite;
+    }
+
+}
