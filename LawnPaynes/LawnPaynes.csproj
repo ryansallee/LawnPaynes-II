@@ -193,10 +193,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807021723480_InitialCreate.cs" />
+    <Compile Include="Migrations\201807021723480_InitialCreate.Designer.cs">
+      <DependentUpon>201807021723480_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807022228336_InitialMigration.cs" />
+    <Compile Include="Migrations\201807022228336_InitialMigration.Designer.cs">
+      <DependentUpon>201807022228336_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807021723480_InitialCreate.resx">
+      <DependentUpon>201807021723480_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807022228336_InitialMigration.resx">
+      <DependentUpon>201807022228336_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
