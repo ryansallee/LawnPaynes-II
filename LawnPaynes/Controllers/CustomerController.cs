@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Net;
 
 namespace LawnPaynes.Controllers
 {
@@ -49,11 +50,61 @@ namespace LawnPaynes.Controllers
         }
 
             public ActionResult Detail(int? id)
+
             {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
                 var customer = _customerRepository.Get((int)id);
 
-                return View(customer);
+                
+                if (customer == null)
+                {
+                    return HttpNotFound();
+                }
 
+                 return View(customer);
+             }
+
+            public ActionResult Edit(int? id)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var customer = _customerRepository.Get((int)id,
+                    includeRelatedEntites: false);
+
+                if (customer == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var viewModel = new CustomerEditViewModel()
+                {
+                    Customer = customer
+                };
+
+                return View(viewModel);
+
+            }
+
+            [HttpPost]
+            public ActionResult Edit(CustomerEditViewModel viewModel)
+            {
+                if (ModelState.IsValid)
+                {
+                    var customer = viewModel.Customer;
+
+                    _customerRepository.Update(customer);
+
+                    return RedirectToAction("Detail", new {id = customer.Id});
+                }
+
+            return View(viewModel);
             }
         
     }

@@ -25,5 +25,11 @@ namespace LawnPaynes.Data
             Context.Set<TEntity>().Add(entity);
             Context.SaveChanges();
         }
+
+        public void Update(TEntity entity)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
+        }
     }
 }

@@ -14,7 +14,6 @@ namespace LawnPaynes.Models
         [Display(Name ="New Customer")]
         public bool IsNew { get; set; }
         [Display(Name = "Phone Number")]
-        
         public string PhoneNumber { get; set; }
 
     }
