@@ -1,0 +1,49 @@
+﻿@model LawnPaynes.Models.Customer
+
+@{ 
+    ViewBag.Title = "Customer Detail: " + Model.Name;
+}
+
+<h2 class="text-center">@Model.Name</h2>
+
+
+   <div class="col-sm-6 mx-auto">
+        
+       <div class="card text-white">
+           <div class="d-flex justify-content-around bg-success">
+               <h4>
+                   @Html.LabelFor(m => m.Name):
+               </h4>
+               <h4>
+                   @Model.Name
+               </h4>
+           </div>
+           @{
+               if (Model.IsNew)
+               {
+                   <div class="d-flex justify-content-around bg-danger">
+                       <h4>
+                           @Html.LabelFor(m => m.IsNew):
+                       </h4>
+                       <h4>
+                           Yes
+                       </h4>
+                   </div>
+
+               }
+               else
+               {
+               <div class="d-flex justify-content-around bg-success">
+                   <h4>
+                       @Html.LabelFor(m => m.IsNew):
+                   </h4>
+                   <h4>
+                       No
+                   </h4>
+               </div>
+                }
+             }
+       </div>
+</div>
+
+

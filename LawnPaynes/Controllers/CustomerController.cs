@@ -47,5 +47,14 @@ namespace LawnPaynes.Controllers
 
             return View(viewModel);
         }
+
+            public ActionResult Detail(int? id)
+            {
+                var customer = _customerRepository.Get((int)id);
+
+                return View(customer);
+
+            }
+        
     }
 }

@@ -20,5 +20,14 @@ namespace LawnPaynes.Data
             return Context.Customers
                 .ToList();
         }
+
+        public override Customer Get(int id, bool includeRelatedEntites = true)
+        {
+            var customers = Context.Customers.AsQueryable();
+
+            return customers
+                .Where(c => c.Id == id)
+                .SingleOrDefault();
+        }
     }
 }

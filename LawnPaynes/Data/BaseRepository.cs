@@ -18,6 +18,7 @@ namespace LawnPaynes.Data
         }
 
         public abstract IList<TEntity> GetList();
+        public abstract TEntity Get(int id, bool includeRelatedEntites = true);
 
         public void Add(TEntity entity)
         {

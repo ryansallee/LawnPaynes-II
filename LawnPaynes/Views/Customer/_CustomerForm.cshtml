@@ -1,13 +1,19 @@
 ﻿@model LawnPaynes.ViewModels.CustomerBaseViewModel
 
-<div>
+<div class="row">
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Name, new { @class = "control-label" })
-        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+    <div class="col-md-5">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg" })
+        </div>
+
+        <div class="form-check">
+            @Html.CheckBoxFor(m => m.Customer.IsNew, new { @class = "form-check-input" })
+            @Html.LabelFor(m => m.Customer.IsNew, new { @class = "form-check-label" })
+
+        </div>
+
+
     </div>
-
-
-
-
 </div>
