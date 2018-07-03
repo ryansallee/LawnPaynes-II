@@ -204,6 +204,14 @@
     <Compile Include="Migrations\201807022228336_InitialMigration.Designer.cs">
       <DependentUpon>201807022228336_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807030218209_PhoneNumberCustomer.cs" />
+    <Compile Include="Migrations\201807030218209_PhoneNumberCustomer.Designer.cs">
+      <DependentUpon>201807030218209_PhoneNumberCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807030223527_PhoneNumberCustomer1.cs" />
+    <Compile Include="Migrations\201807030223527_PhoneNumberCustomer1.Designer.cs">
+      <DependentUpon>201807030223527_PhoneNumberCustomer1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -216,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807022228336_InitialMigration.resx">
       <DependentUpon>201807022228336_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807030218209_PhoneNumberCustomer.resx">
+      <DependentUpon>201807030218209_PhoneNumberCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807030223527_PhoneNumberCustomer1.resx">
+      <DependentUpon>201807030223527_PhoneNumberCustomer1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
