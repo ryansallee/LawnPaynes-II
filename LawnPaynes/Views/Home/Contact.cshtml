@@ -1,0 +1,58 @@
+﻿@model LawnPaynes.ViewModels.CustomerAddViewModel
+
+@section Styles{
+    <link href="@Url.Content("~/Content/Styles/contact.css")" rel="stylesheet" type="text/css" />
+    }
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+<!-- The contactForm div will contain a contact form to be sent via a jQuery AJAX request and to validate the inputs -->
+<div class="contactForm">
+    @using (Html.BeginForm())
+    {
+        <h2>Contact Us!</h2>
+        <p> Complete the form below and we will contact you!</p>
+        <!-- This <p> tag that is the child of noscript will display if JavaScript is disabled -->
+        <noscript>
+            <p>JavaScript is disabled. Please enable JavaScript and reload the page so that you can submit the form! Thank you!</p>
+        </noscript>
+        <!-- The errorAlert span will contain an error message inserted by the AJAX request if there is a server error -->
+        <span class="errorAlert"></span>
+        <div class="inputs">
+            @Html.HiddenFor(m => m.Customer.IsNew, new { @Value = "true" })
+            <span class="asterisk">*</span>
+            @Html.LabelFor(m => m.Customer.Name, "Name :")
+            <br>
+            <!-- Set the Name input as the field to autofocus on page load -->
+            @Html.TextBoxFor(m => m.Customer.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
+            <!-- The alert spans after each input will contain an error message inserted by the script if they are empty or do not match the format requested for each input -->
+            <span class="alertName"></span>
+            <br>
+            <label for="mail"><span class="asterisk">*</span>Email:</label>
+            <br>
+            <input type="email" id="mail" name="mail" placeholder="youremail@email.com" required>
+            <span class="alertEmail"></span>
+            <br>
+            @Html.LabelFor(m => m.Customer.PhoneNumber)
+            <br>
+            @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @placeholder = "(123) 456-7890", @id = "phone", @type = "tel" })
+            <span class="alertPhone"></span>
+            <br>
+        </div>
+
+        <div class="comments">
+            <label for="comments"><span class="asterisk">*</span>Comments:</label>
+            <br>
+            <textarea type="textarea" id="comments" name="comments" placeholder="Type your comments here." rows="10"></textarea>
+            <span class="alertComment"></span>
+            <br>
+        </div>
+        <!-- Buttons to submit the contact form or reset their inputs -->
+        <div class="buttons">
+            <input type="reset">
+            <input type="Submit">
+        </div>     
+    }
+    </div>

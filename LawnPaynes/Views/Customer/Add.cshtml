@@ -4,18 +4,18 @@
     ViewBag.Title = "Add Customer";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 class="text-center">@ViewBag.Title</h2>
 @using (Html.BeginForm())
 {
     @Html.Partial("_CustomerForm")
 
-       <div class="row">
-        <div class="col-md-12">
+       <div class="row text-center">
+        <div class="col-12">
             <div class="pad-top">
-                <button type="submit" class="btn btn-success btn-lg margin-right">
+                <button type="submit" class="btn btn-success btn-lg ">
                     <span class="glyphicon glyphicon-save"></span> Save
                 </button>
-                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger btn-lg margin-right" })
+                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger btn-lg " })
             </div>
         </div>
     </div>

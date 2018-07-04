@@ -68,5 +68,7 @@
         </div>
     </div>
 
-    @Html.ActionLink("Edit Customer", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg margin-right" })
-    @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg margin-right" })
+    <div class="pad-top">
+        @Html.ActionLink("Edit Customer", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg margin-right" })
+        @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg margin-right" })
+    </div>

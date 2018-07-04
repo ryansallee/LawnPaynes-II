@@ -1,0 +1,164 @@
+/* This stylesheet is for the contact form only in conjunction with the basestyles.css to be applied on 
+all pages. */
+
+
+/* Base Styles */
+
+
+/* The basestyles.css sets the body display to flex. To prevent any issues with IE 10 and IE: 11
+with flex due to a bug with IE in respect to flex, the flex 1 0 auto is used. */
+
+.contactForm {
+    flex: 1 0 auto;
+    width: 97.5%;
+    background: white;
+    margin: 10px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgb(113, 119, 119);
+}
+
+form {
+    margin: 10px auto;
+    width: 95%;
+}
+
+h2,
+p,
+legend {
+    text-align: center;
+}
+
+h2,
+p {
+    margin: 5px 0;
+}
+
+input {
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.asterisk {
+    color: red;
+    padding-right: 1px;
+}
+
+.inputs,
+.checks {
+    margin: 0 auto 5px auto;
+    width: 55%;
+    padding: 5px 0;
+}
+
+.inputs input {
+    width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    background-color: rgba(255, 255, 0, 0.308);
+    border: 2px solid rgb(33, 128, 33);
+}
+
+fieldset {
+    border-radius: 5px;
+}
+
+.checks input {
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+
+/* This ensures that the comments will take up a large area on smaller screens for maximum visiblilty. */
+
+.comments {
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+/* This will make sure that the textarea fills the entire div for comments that is specified above and in media queries
+/* and does not need a col specified in the HTML */
+
+.comments textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+/* Button Styles */
+
+.buttons {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 1.5em;
+}
+
+.buttons input {
+    background-color: rgb(33, 128, 33);
+    border-radius: 25px;
+    padding: 2px 20px;
+    display: inline-block;
+    color: white;
+    box-shadow: 5px 5px 5px rgb(113, 119, 119);
+}
+
+input[type="reset"] {
+    margin-right: 10px;
+}
+
+input[type="button"] {
+    margin-left: 10px;
+}
+
+
+/* Media Queries */
+
+
+/* Tablets */
+
+@media (min-width: 640px) {
+    .contactForm {
+        width: 95%;
+        margin: 97.5px auto 10px;
+    }
+    .inputs,
+    .checks {
+        width: 35%;
+    }
+    /* Takes down the comments width some for tablet-sized screens so that the form doesn't appear imbalanced. */
+    .comments {
+        width: 75%;
+    }
+    .buttons {
+        margin-top: 5px;
+    }
+}
+
+
+/* Desktop and Laptop */
+
+@media (min-width: 1025px) {
+    .contactForm {
+        width: 92.5%;
+        margin: 72px auto 10px;
+    }
+    .inputs,
+    .checks {
+        width: 35%;
+    }
+    /* Decreases the comments div width for large screen balance. */
+    .comments {
+        width: 65%;
+    }
+    /* Button Styles */
+    .buttons {
+        font-size: 1em;
+        margin-top: 0px;
+    }
+}

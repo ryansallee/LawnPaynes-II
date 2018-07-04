@@ -1,23 +1,23 @@
 ﻿@model LawnPaynes.ViewModels.CustomerEditViewModel
 
 @{
-    ViewBag.Title = "Edit Customer";
+    ViewBag.Title = "Edit Customer: " + Model.Customer.Name;
 }
 
-<h2>Customer.Name</h2>
+<h2 class="text-center">@Model.Customer.Name</h2>
 
 @using (Html.BeginForm())
 {
     @Html.Partial("_CustomerForm")
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="container text-center">
+        <div class="col-12">
             <div class="pad-top">
-                <button type="submit" class="btn btn-success btn-lg margin-right">
+                <button type="submit" class="btn btn-success btn-lg ">
                     <span class="glyphicon glyphicon-save"></span> Save
                 </button>
-                @Html.ActionLink("Detail", "Detail", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg margin-right" })
-                @Html.ActionLink("Cancel", "Index", null,  new { @class = "btn btn-danger btn-lg margin-right" })
+                @Html.ActionLink("Detail", "Detail", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg" })
+                @Html.ActionLink("Cancel", "Index", null,  new { @class = "btn btn-danger btn-lg" })
 
             </div>
         </div>

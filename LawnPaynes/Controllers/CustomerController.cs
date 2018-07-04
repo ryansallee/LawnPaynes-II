@@ -106,6 +106,14 @@ namespace LawnPaynes.Controllers
 
             return View(viewModel);
             }
-        
+            
+
+            [HttpPost]
+            public ActionResult Delete(int id)
+            {
+                _customerRepository.Delete(id);
+
+                return RedirectToAction("Index");
+            }
     }
 }

@@ -31,5 +31,13 @@ namespace LawnPaynes.Data
             Context.Entry(entity).State = EntityState.Modified;
             Context.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            var set = Context.Set<TEntity>();
+            var entity = set.Find(id);
+            set.Remove(entity);
+            Context.SaveChanges();
+        }
     }
 }
