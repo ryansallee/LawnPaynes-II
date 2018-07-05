@@ -35,7 +35,8 @@
             <input type="email" id="mail" name="mail" placeholder="youremail@email.com" required>
             <span class="alertEmail"></span>
             <br>
-            @Html.LabelFor(m => m.Customer.PhoneNumber)
+            <span class="asterisk">*</span>
+            @Html.LabelFor(m => m.Customer.PhoneNumber, "Phone Number :")
             <br>
             @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @placeholder = "(123) 456-7890", @id = "phone", @type = "tel" })
             <span class="alertPhone"></span>
@@ -43,9 +44,10 @@
         </div>
 
         <div class="comments">
-            <label for="comments"><span class="asterisk">*</span>Comments:</label>
+            <span class="asterisk">*</span>
+            @Html.LabelFor(m => m.Customer.Comments, "Comments :")
             <br>
-            <textarea type="textarea" id="comments" name="comments" placeholder="Type your comments here." rows="10"></textarea>
+            @Html.TextAreaFor(m => m.Customer.Comments, new {@placeholder = "Type your comments here.", id="comments", @rows ="10" })
             <span class="alertComment"></span>
             <br>
         </div>

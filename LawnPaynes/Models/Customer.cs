@@ -15,6 +15,7 @@ namespace LawnPaynes.Models
         public bool IsNew { get; set; }
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
+        public string Comments { get; set; }
 
     }
 }

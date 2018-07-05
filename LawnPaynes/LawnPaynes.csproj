@@ -172,6 +172,10 @@
     <Content Include="Views\Customer\Add.cshtml" />
     <Content Include="Views\Customer\_CustomerForm.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
+    <Compile Include="Migrations\201807051719139_CustomerComments.cs" />
+    <Compile Include="Migrations\201807051719139_CustomerComments.Designer.cs">
+      <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CustomerEditViewModel.cs" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -234,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807030223527_PhoneNumberCustomer1.resx">
       <DependentUpon>201807030223527_PhoneNumberCustomer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807051719139_CustomerComments.resx">
+      <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
