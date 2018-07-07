@@ -25,8 +25,14 @@ namespace LawnPaynes.Data
         {
             var customers = Context.Customers.AsQueryable();
 
+            if (includeRelatedEntites)
+            {
+                customers = customers
+                    .Include(c => c.CustomerLocations.Select(cl => cl.Address));
+            }
+
             return customers
-                .Where(c => c.Id == id)
+                .Where(c => c.CustomerId == id)
                 .SingleOrDefault();
         }
     }

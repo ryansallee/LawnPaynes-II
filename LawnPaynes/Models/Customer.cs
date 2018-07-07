@@ -8,7 +8,7 @@ namespace LawnPaynes.Models
 {
     public class Customer
     {
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
         
         public string Name { get; set; }
         [Display(Name ="New Customer")]
@@ -18,5 +18,6 @@ namespace LawnPaynes.Models
         public string Comments { get; set; }
         public string Email { get; set; }
 
+        public ICollection<CustomerLocation> CustomerLocations { get; set; }
     }
 }

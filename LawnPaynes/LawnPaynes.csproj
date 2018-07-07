@@ -180,6 +180,15 @@
     <Compile Include="Migrations\201807071451202_EmailAdded.Designer.cs">
       <DependentUpon>201807071451202_EmailAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807071515027_Customer.IdToCustomer.CustomerId.cs" />
+    <Compile Include="Migrations\201807071515027_Customer.IdToCustomer.CustomerId.Designer.cs">
+      <DependentUpon>201807071515027_Customer.IdToCustomer.CustomerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807071548175_AddedCustomerLocation.cs" />
+    <Compile Include="Migrations\201807071548175_AddedCustomerLocation.Designer.cs">
+      <DependentUpon>201807071548175_AddedCustomerLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerEditViewModel.cs" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -198,7 +207,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\CustomerRepository.cs" />
     <Compile Include="Data\LawnPaynesContext.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -248,6 +256,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807071451202_EmailAdded.resx">
       <DependentUpon>201807071451202_EmailAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807071515027_Customer.IdToCustomer.CustomerId.resx">
+      <DependentUpon>201807071515027_Customer.IdToCustomer.CustomerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807071548175_AddedCustomerLocation.resx">
+      <DependentUpon>201807071548175_AddedCustomerLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

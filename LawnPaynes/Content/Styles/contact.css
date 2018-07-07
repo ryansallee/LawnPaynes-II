@@ -143,7 +143,7 @@ input[type="button"] {
 
 /* Desktop and Laptop */
 
-@media (min-width: 1025px) {
+@media (min-width: 1200px) {
     .contactForm {
         width: 92.5%;
         margin: 72px auto 10px;

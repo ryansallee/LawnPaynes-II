@@ -12,8 +12,8 @@ namespace LawnPaynes.ViewModels
 
 		public int Id
         {
-            get { return Customer.Id; }
-			set { Customer.Id = value; }
+            get { return Customer.CustomerId; }
+			set { Customer.CustomerId = value; }
         }
 	}
 }

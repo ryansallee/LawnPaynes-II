@@ -22,6 +22,7 @@ namespace LawnPaynes.Data
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<CustomerLocation> CustomerLocations { get; set; }
 
 
 

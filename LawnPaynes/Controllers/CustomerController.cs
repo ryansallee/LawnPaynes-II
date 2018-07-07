@@ -65,6 +65,8 @@ namespace LawnPaynes.Controllers
                     return HttpNotFound();
                 }
 
+                customer.CustomerLocations = customer.CustomerLocations.ToList();
+
                  return View(customer);
              }
 
@@ -76,7 +78,7 @@ namespace LawnPaynes.Controllers
                 }
 
                 var customer = _customerRepository.Get((int)id,
-                    includeRelatedEntites: false);
+                    includeRelatedEntites: true);
 
                 if (customer == null)
                 {
@@ -101,7 +103,7 @@ namespace LawnPaynes.Controllers
 
                     _customerRepository.Update(customer);
 
-                    return RedirectToAction("Detail", new {id = customer.Id});
+                    return RedirectToAction("Detail", new {id = customer.CustomerId});
                 }
 
             return View(viewModel);

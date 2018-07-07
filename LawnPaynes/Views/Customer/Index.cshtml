@@ -36,15 +36,15 @@
                  }
                 <td> @customer.PhoneNumber</td>
                 <td>
-                    @Html.ActionLink("Detail", "Detail", new { id = customer.Id }, new { @class = "btn btn-primary btn-xs margin-right" })
-                    @Html.ActionLink("Edit", "Edit", new { id = customer.Id }, new { @class = "btn btn-primary btn-xs margin-right" })
-                        <a data-toggle="modal" href="#deleteCustomerModal+@customer.Id" class="btn btn-danger btn-xs margin-right">Delete</a>
-                        <div class="modal" id="deleteCustomerModal+@customer.Id" tabindex="-1" role="dialog">
+                    @Html.ActionLink("Detail", "Detail", new { id = customer.CustomerId }, new { @class = "btn btn-primary btn-xs margin-right" })
+                    @Html.ActionLink("Edit", "Edit", new { id = customer.CustomerId }, new { @class = "btn btn-primary btn-xs margin-right" })
+                        <a data-toggle="modal" href="#deleteCustomerModal+@customer.CustomerId" class="btn btn-danger btn-xs margin-right">Delete</a>
+                        <div class="modal" id="deleteCustomerModal+@customer.CustomerId" tabindex="-1" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    @using (Html.BeginForm("Delete", "Customer", new { id = customer.Id }))
+                                    @using (Html.BeginForm("Delete", "Customer", new { id = customer.CustomerId }))
                                     {
-                                        <input type="hidden" value="@customer.Id" name="Id"/>
+                                        <input type="hidden" value="@customer.CustomerId" name="Id"/>
                                         <div class="modal-header">
                                             <h4 class="modal-title">Delete @customer.Name</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

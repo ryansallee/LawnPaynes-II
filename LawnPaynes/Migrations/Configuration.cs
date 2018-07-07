@@ -19,7 +19,7 @@ namespace LawnPaynes.Migrations
         {
             var customer1 = new Customer()
             {
-                Id = 1,
+                CustomerId = 1,
                 Name = "John Doe",
                 IsNew = true
             };
@@ -29,7 +29,7 @@ namespace LawnPaynes.Migrations
 
             var customer2 = new Customer()
             {
-                Id = 2,
+                CustomerId = 2,
                 Name = "Jane Doe",
                 IsNew = false
             };
