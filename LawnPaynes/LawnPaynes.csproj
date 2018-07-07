@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201807051719139_CustomerComments.Designer.cs">
       <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807071451202_EmailAdded.cs" />
+    <Compile Include="Migrations\201807071451202_EmailAdded.Designer.cs">
+      <DependentUpon>201807071451202_EmailAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CustomerEditViewModel.cs" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -241,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807051719139_CustomerComments.resx">
       <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807071451202_EmailAdded.resx">
+      <DependentUpon>201807071451202_EmailAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

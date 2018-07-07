@@ -30,9 +30,10 @@
             <!-- The alert spans after each input will contain an error message inserted by the script if they are empty or do not match the format requested for each input -->
             <span class="alertName"></span>
             <br>
-            <label for="mail"><span class="asterisk">*</span>Email:</label>
+            <span class="asterisk">*</span>
+            @Html.LabelFor(m => m.Customer.Email, "Email :")
             <br>
-            <input type="email" id="mail" name="mail" placeholder="youremail@email.com" required>
+            @Html.TextBoxFor(m => m.Customer.Email, new { @placeholder = "youremail@email.com", @id = "mail", @type = "email" })
             <span class="alertEmail"></span>
             <br>
             <span class="asterisk">*</span>

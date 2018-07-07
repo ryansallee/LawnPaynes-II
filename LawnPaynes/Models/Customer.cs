@@ -16,6 +16,7 @@ namespace LawnPaynes.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
         public string Comments { get; set; }
+        public string Email { get; set; }
 
     }
 }
