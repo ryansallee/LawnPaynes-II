@@ -14,17 +14,18 @@ namespace LawnPaynes.Controllers
     public class CustomerController : BaseController
     {
         private CustomerRepository _customerRepository = null;
-        
+
 
         public CustomerController()
         {
             _customerRepository = new CustomerRepository(Context);
-            
+
         }
 
         public ActionResult Index()
         {
-            var customers = _customerRepository.GetList();
+            var customers = Context.Customers.
+                ToList();
 
             return View(customers);
         }
@@ -43,7 +44,7 @@ namespace LawnPaynes.Controllers
             {
                 var customer = viewModel.Customer;
                 
-                _customerRepository.Add(customer);
+                Context.Customers.Add(customer);
 
                 return RedirectToAction("Index");
             }
@@ -59,7 +60,10 @@ namespace LawnPaynes.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                var customer = _customerRepository.Get((int)id);
+                var customer = Context.Customers
+                .Include(c => c.CustomerLocations)
+                .Where(c => c.CustomerId == id)
+                .SingleOrDefault();
 
                 
                 if (customer == null)
@@ -79,8 +83,9 @@ namespace LawnPaynes.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                var customer = _customerRepository.Get((int)id,
-                    includeRelatedEntites: true);
+                var customer = Context.Customers
+                .Where(c => c.CustomerId == id)
+                .SingleOrDefault();
 
                 if (customer == null)
                 {
@@ -105,7 +110,8 @@ namespace LawnPaynes.Controllers
                 {
                     var customer = viewModel.Customer;
 
-                    _customerRepository.Update(customer);
+                    Context.Entry(customer).State = EntityState.Modified;
+                    Context.SaveChanges();
 
                     return RedirectToAction("Detail", new {id = customer.CustomerId});
                 }
@@ -117,7 +123,8 @@ namespace LawnPaynes.Controllers
             [HttpPost]
             public ActionResult Delete(int id)
             {
-                _customerRepository.Delete(id);
+                var customer = Context.Customers.Find(id);
+                Context.Customers.Remove(customer);
 
                 return RedirectToAction("Index");
             }

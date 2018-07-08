@@ -97,6 +97,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\CustomerLocationRepository.cs" />
+    <Compile Include="Data\CustomerRepository.cs" />
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
     <None Include="packages.config" />
@@ -175,7 +179,6 @@
     <Content Include="Views\Customer\_CustomerForm.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
     <Compile Include="Controllers\CustomerLocationController.cs" />
-    <Compile Include="Data\CustomerLocationRepository.cs" />
     <Compile Include="Migrations\201807051719139_CustomerComments.cs" />
     <Compile Include="Migrations\201807051719139_CustomerComments.Designer.cs">
       <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
@@ -213,13 +216,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\CustomerRepository.cs" />
     <Compile Include="Data\LawnPaynesContext.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

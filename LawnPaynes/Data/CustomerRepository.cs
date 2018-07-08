@@ -12,7 +12,7 @@ namespace LawnPaynes.Data
         public CustomerRepository(LawnPaynesContext context)
             :base(context)
         {
-
+            
         }
 
         public override IList<Customer> GetList()
