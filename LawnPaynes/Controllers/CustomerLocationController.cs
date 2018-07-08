@@ -13,14 +13,6 @@ namespace LawnPaynes.Controllers
 {
     public class CustomerLocationController : BaseController
     {
-        private CustomerLocationRepository _customerLocationRepository = null;
-        private CustomerRepository _customerRepository = null;
-
-        public CustomerLocationController()
-        {
-            _customerLocationRepository = new CustomerLocationRepository(Context);
-            _customerRepository = new CustomerRepository(Context);
-        }
 
         public ActionResult Edit(int? id)
         {
@@ -29,8 +21,9 @@ namespace LawnPaynes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var customerLocation = _customerLocationRepository.Get((int)id,
-                includeRelatedEntites: true);
+            var customerLocation = Context.CustomerLocations
+                .Where(cl => cl.CustomerLocationId == id)
+                .SingleOrDefault();
 
             if (customerLocation == null)
             {
@@ -42,9 +35,7 @@ namespace LawnPaynes.Controllers
                 CustomerLocation = customerLocation
             };
 
-
-
-            return View(viewModel);
+             return View(viewModel);
 
         }
 
@@ -56,8 +47,9 @@ namespace LawnPaynes.Controllers
                 var customerLocation = viewModel.CustomerLocation;
                 //Appears to be Hacky Code. Ask about.
                 customerLocation.CustomerId = customerId;
-                
-                _customerLocationRepository.Update(customerLocation);
+
+                Context.Entry(customerLocation).State = EntityState.Modified;
+                Context.SaveChanges();
 
                 return RedirectToAction("Detail", "Customer", new { id = customerLocation.CustomerId });
             }
@@ -67,7 +59,9 @@ namespace LawnPaynes.Controllers
 
         public ActionResult Add(int customerId)
         {
-            var customer = _customerRepository.Get(customerId);
+            var customer = Context.Customers
+                .Where(c => c.CustomerId == customerId)
+                .SingleOrDefault();
 
             if (customer == null)
             {
@@ -95,7 +89,8 @@ namespace LawnPaynes.Controllers
                     Address = viewModel.CustomerLocation.Address
                 };
                 
-                _customerLocationRepository.Add(customerLocation);
+               Context.CustomerLocations.Add(customerLocation);
+                Context.SaveChanges();
 
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
@@ -106,7 +101,9 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Delete(int id, int customerId)
         {
-            _customerLocationRepository.Delete(id);
+            var customerLocation = Context.CustomerLocations.Find(id);
+            Context.CustomerLocations.Remove(customerLocation);
+            Context.SaveChanges();
 
             return RedirectToAction("Detail", "Customer", new { id = customerId });
         }

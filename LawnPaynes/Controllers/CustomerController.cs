@@ -117,6 +117,7 @@ namespace LawnPaynes.Controllers
             {
                 var customer = Context.Customers.Find(id);
                 Context.Customers.Remove(customer);
+                Context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
