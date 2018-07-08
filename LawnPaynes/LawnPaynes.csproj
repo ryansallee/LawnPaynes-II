@@ -97,10 +97,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\CustomerLocationRepository.cs" />
-    <Compile Include="Data\CustomerRepository.cs" />
-    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
     <None Include="packages.config" />

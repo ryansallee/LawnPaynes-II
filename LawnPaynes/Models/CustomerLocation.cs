@@ -13,5 +13,7 @@ namespace LawnPaynes.Models
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public ICollection<Service> Services { get; set; }
     }
 }
