@@ -97,6 +97,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
+    <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
     <None Include="packages.config" />
     <Content Include="Content\img\contact_us.svg" />
     <Content Include="Content\img\Edging.jpg" />
@@ -172,6 +174,8 @@
     <Content Include="Views\Customer\Add.cshtml" />
     <Content Include="Views\Customer\_CustomerForm.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
+    <Compile Include="Controllers\CustomerLocationController.cs" />
+    <Compile Include="Data\CustomerLocationRepository.cs" />
     <Compile Include="Migrations\201807051719139_CustomerComments.cs" />
     <Compile Include="Migrations\201807051719139_CustomerComments.Designer.cs">
       <DependentUpon>201807051719139_CustomerComments.cs</DependentUpon>
@@ -192,6 +196,9 @@
     <Compile Include="ViewModels\CustomerEditViewModel.cs" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\CustomerLocation\Edit.cshtml" />
+    <Content Include="Views\CustomerLocation\Add.cshtml" />
+    <Content Include="Views\CustomerLocation\_CustomerLocationForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

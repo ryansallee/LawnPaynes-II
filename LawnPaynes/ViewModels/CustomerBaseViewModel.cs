@@ -10,5 +10,6 @@ namespace LawnPaynes.ViewModels
     public abstract class CustomerBaseViewModel
     {
         public Customer Customer { get; set; } = new Customer();
+        public CustomerLocation CustomerLocation { get; set; } = new CustomerLocation();
     }
 }

@@ -24,16 +24,20 @@ namespace LawnPaynes.Data
         public override Customer Get(int id, bool includeRelatedEntites = true)
         {
             var customers = Context.Customers.AsQueryable();
+            
 
             if (includeRelatedEntites)
             {
                 customers = customers
-                    .Include(c => c.CustomerLocations.Select(cl => cl.Address));
+                    .Include(c => c.CustomerLocations);
+                    
             }
 
             return customers
                 .Where(c => c.CustomerId == id)
                 .SingleOrDefault();
+
+                        
         }
     }
 }

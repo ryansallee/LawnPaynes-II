@@ -14,10 +14,12 @@ namespace LawnPaynes.Controllers
     public class CustomerController : BaseController
     {
         private CustomerRepository _customerRepository = null;
+        
 
         public CustomerController()
         {
             _customerRepository = new CustomerRepository(Context);
+            
         }
 
         public ActionResult Index()
@@ -40,7 +42,7 @@ namespace LawnPaynes.Controllers
             if (ModelState.IsValid)
             {
                 var customer = viewModel.Customer;
-
+                
                 _customerRepository.Add(customer);
 
                 return RedirectToAction("Index");
@@ -89,6 +91,8 @@ namespace LawnPaynes.Controllers
                 {
                     Customer = customer
                 };
+                
+                
 
                 return View(viewModel);
 

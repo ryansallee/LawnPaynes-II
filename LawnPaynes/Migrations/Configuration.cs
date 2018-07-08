@@ -35,6 +35,15 @@ namespace LawnPaynes.Migrations
             };
 
             context.Customers.AddOrUpdate(customer2);
+
+            var customerLocation1 = new CustomerLocation()
+            {
+                CustomerLocationId = 1,
+                Address = "1333 Jones St, Louisville KY 40218",
+                CustomerId = 1
+            };
+
+            context.CustomerLocations.AddOrUpdate(customerLocation1);
         }
     }
 }
