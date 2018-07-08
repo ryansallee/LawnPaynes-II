@@ -1,0 +1,28 @@
+﻿@model List<LawnPaynes.Models.Service>
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<div class="d-flex justify-content-end">
+    @Html.ActionLink("Add Service", "Add", null, new { @class = "btn btn-primary " })
+</div>
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>Service Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var service in Model)
+        {
+            <tr>
+                <td>@service.ServiceName</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = service.ServiceId }, new { @class = "btn btn-primary btn-xs margin-right" })</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -108,7 +108,7 @@ namespace LawnPaynes.Controllers
                     return RedirectToAction("Detail", new {id = customer.CustomerId});
                 }
 
-            return View(viewModel);
+                return View(viewModel);
             }
             
 

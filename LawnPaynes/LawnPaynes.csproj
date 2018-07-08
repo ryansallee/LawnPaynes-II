@@ -97,6 +97,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Migrations\201807081911425_ServicesAdded.cs" />
+    <Compile Include="Migrations\201807081911425_ServicesAdded.Designer.cs">
+      <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
@@ -199,6 +204,9 @@
     <Content Include="Views\CustomerLocation\Edit.cshtml" />
     <Content Include="Views\CustomerLocation\Add.cshtml" />
     <Content Include="Views\CustomerLocation\_CustomerLocationForm.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Add.cshtml" />
+    <Content Include="Views\Service\_ServiceForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -266,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807071548175_AddedCustomerLocation.resx">
       <DependentUpon>201807071548175_AddedCustomerLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807081911425_ServicesAdded.resx">
+      <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

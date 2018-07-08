@@ -1,0 +1,9 @@
+﻿@model LawnPaynes.Models.Service
+
+<div class="form-group row justify-content-center">
+    @Html.LabelFor(s => s.ServiceName, "Service :", new { @class = "col-sm-2 col-form-label" })
+    <div class="col-sm-4 col-lg-3">
+        @Html.TextBoxFor(s => s.ServiceName, new { @class = "form-control form-control-lg" })
+    </div>
+</div>
+
