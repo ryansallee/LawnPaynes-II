@@ -13,15 +13,7 @@ namespace LawnPaynes.Controllers
 {
     public class CustomerController : BaseController
     {
-        private CustomerRepository _customerRepository = null;
-
-
-        public CustomerController()
-        {
-            _customerRepository = new CustomerRepository(Context);
-
-        }
-
+  
         public ActionResult Index()
         {
             var customers = Context.Customers.

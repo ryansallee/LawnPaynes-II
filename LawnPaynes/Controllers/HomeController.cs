@@ -37,15 +37,13 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Contact(CustomerAddViewModel viewModel)
         {
-            var customerRepository = new CustomerRepository(Context);
-
             if (ModelState.IsValid)
             {
                 var customer = viewModel.Customer;
 
-                customerRepository.Add(customer);
+                Context.Customers.Add(customer);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Contact");
             }
 
             return View(viewModel);
