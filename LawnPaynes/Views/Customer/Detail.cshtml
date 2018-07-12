@@ -1,4 +1,5 @@
 ﻿@model LawnPaynes.Models.Customer
+    
 
 @{
     ViewBag.Title = "Customer Detail: " + Model.Name;
@@ -91,6 +92,11 @@
                 <h5 class="card-title"> Address </h5>
 
                 <p class="card-text">@customerLocation.Address</p>
+                @foreach(var locationService in customerLocation.Services)
+                {
+                   <p class="card-text"> @locationService.ServiceName </p>
+                }
+
                 @Html.ActionLink("Edit", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary btn-lg margin-right" })
 
                 <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger btn-lg margin-right">Delete</a>

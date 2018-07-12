@@ -31,7 +31,8 @@ namespace LawnPaynes.Controllers
         // GET: Contact
         public ActionResult Contact()
         {
-            return View();
+            var viewModel = new CustomerAddViewModel();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -42,6 +43,7 @@ namespace LawnPaynes.Controllers
                 var customer = viewModel.Customer;
 
                 Context.Customers.Add(customer);
+                Context.SaveChanges();
 
                 return RedirectToAction("Contact");
             }

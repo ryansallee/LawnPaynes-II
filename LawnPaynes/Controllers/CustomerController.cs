@@ -37,6 +37,7 @@ namespace LawnPaynes.Controllers
                 var customer = viewModel.Customer;
                 
                 Context.Customers.Add(customer);
+                Context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -54,6 +55,7 @@ namespace LawnPaynes.Controllers
 
                 var customer = Context.Customers
                 .Include(c => c.CustomerLocations)
+                .Include("CustomerLocations.Services")
                 .Where(c => c.CustomerId == id)
                 .SingleOrDefault();
 

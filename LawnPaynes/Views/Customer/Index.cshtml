@@ -44,7 +44,7 @@
                                 <div class="modal-content">
                                     @using (Html.BeginForm("Delete", "Customer", new { id = customer.CustomerId }))
                                     {
-                                        <input type="hidden" value="@customer.CustomerId" name="Id"/>
+                                        @*<input type="hidden" value="@customer.CustomerId" name="Id"/>*@
                                         <div class="modal-header">
                                             <h4 class="modal-title">Delete @customer.Name</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
