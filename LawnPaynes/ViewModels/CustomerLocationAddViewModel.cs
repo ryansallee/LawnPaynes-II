@@ -15,8 +15,6 @@ namespace LawnPaynes.ViewModels
             set { Customer.CustomerId = value; }
         }
 
-        //public Customer Customer { get; set; } = new Customer();
-        
-
+      
     }
 }

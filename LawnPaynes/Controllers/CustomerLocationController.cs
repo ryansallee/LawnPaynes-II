@@ -40,13 +40,13 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(CustomerLocationEditViewModel viewModel, int customerId)
+        public ActionResult Edit(CustomerLocationEditViewModel viewModel/*, int customerId*/)
         {
             if (ModelState.IsValid)
             {
                 var customerLocation = viewModel.CustomerLocation;
-                //Appears to be Hacky Code. Ask about.
-                customerLocation.CustomerId = customerId;
+                ////Appears to be Hacky Code. Ask about.
+                //customerLocation.CustomerId = customerId;
 
                 Context.Entry(customerLocation).State = EntityState.Modified;
                 Context.SaveChanges();
@@ -71,9 +71,9 @@ namespace LawnPaynes.Controllers
             var viewModel = new CustomerLocationAddViewModel();
             {
                 viewModel.Customer = customer;
+                
             };
             
-
             return View(viewModel);
         }
 
@@ -82,14 +82,10 @@ namespace LawnPaynes.Controllers
         {
             if (ModelState.IsValid)
             {
-                var customerLocation = new CustomerLocation()
-                {
-                    CustomerId = viewModel.CustomerId,
-                    //Hacky code as well. Ask about.
-                    Address = viewModel.CustomerLocation.Address
-                };
+                var customerLocation = viewModel.CustomerLocation;
+                customerLocation.CustomerId = viewModel.CustomerId;
                 
-               Context.CustomerLocations.Add(customerLocation);
+                Context.CustomerLocations.Add(customerLocation);
                 Context.SaveChanges();
 
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
