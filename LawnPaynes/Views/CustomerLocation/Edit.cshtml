@@ -6,11 +6,10 @@
 <h2>ViewBag.Title</h2>
 @Model.CustomerLocation.CustomerId
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "CustomerLocation", new { customerId = Model.CustomerLocation.CustomerId }))
 {
     @Html.Partial("_CustomerLocationForm")
 
-    @Html.HiddenFor(m => m.CustomerLocation.CustomerId);
 
 
     <div class="row text-center">

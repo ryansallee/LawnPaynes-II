@@ -207,7 +207,6 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Service\Add.cshtml" />
     <Content Include="Views\Service\_ServiceForm.cshtml" />
-    <Content Include="Views\Service\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
