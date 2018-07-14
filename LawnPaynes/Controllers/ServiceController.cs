@@ -63,15 +63,5 @@ namespace LawnPaynes.Controllers
 
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            var service = Context.Services.Find(id);
-            Context.Services.Remove(service);
-            Context.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
     }
 }
