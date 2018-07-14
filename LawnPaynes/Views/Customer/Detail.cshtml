@@ -106,6 +106,11 @@
                 <h5 class="card-title"> Address </h5>
 
                 <p class="card-text">@customerLocation.Address</p>
+                @{ 
+                    var customerLocationAddress = customerLocation.Address;
+                    var customerLocationID = customerLocation.CustomerLocationId;
+                }
+
                 @foreach(var locationService in customerLocation.Services)
                 {
                    <p class="card-text"> @locationService.ServiceName </p>

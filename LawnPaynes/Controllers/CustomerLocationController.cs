@@ -1,10 +1,5 @@
-﻿using LawnPaynes.Data;
-using LawnPaynes.Models;
-using LawnPaynes.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using LawnPaynes.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
