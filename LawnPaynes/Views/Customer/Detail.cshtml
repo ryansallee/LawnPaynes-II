@@ -103,29 +103,62 @@
         {
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title"> Address </h5>
+                    <h5 class="card-title"> Location &amp Services </h5>
 
                     <p class="card-text">@customerLocation.Address</p>
-                    @{
-                        var customerLocationAddress = customerLocation.Address;
-                        var customerLocationID = customerLocation.CustomerLocationId;
-                    }
 
-                    @foreach (var locationService in customerLocation.ServiceCustomerLocations)
-                    {
-                        <p class="card-text"> @locationService.Service.ServiceName </p>
-                        @locationService.CustomerLocation.CustomerLocationId
-                    }
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Delete?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var locationService in customerLocation.ServiceCustomerLocations)
+                            {
+                                <tr>
+                                    <td>@locationService.Service.ServiceName</td>
+                                    <td>
+                                        <a data-toggle="modal" href="#deleteServiceCustomerLocationModal+@locationService.ServiceId+@locationService.CustomerLocationId" class="btn btn-danger btn-sm margin-right">Delete Service</a>
+                                        <div class="modal" id="deleteServiceCustomerLocationModal+@locationService.ServiceId+@locationService.CustomerLocationId" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    @using (Html.BeginForm("Delete", "ServiceCustomerLocation", new { customerLocationId = locationService.CustomerLocationId, serviceId = locationService.ServiceId, customerId = Model.CustomerId }))
+                                                    {
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Remove @locationService.Service.ServiceName from @locationService.CustomerLocation.Address?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
 
-                    @Html.ActionLink("Edit", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary btn-lg margin-right" })
+                                                        <div class="modal-body">
+                                                            Are you sure you want to remove @locationService.Service.ServiceName from this location? This service will have to be added to the location again.
+                                                        </div>
 
-                    <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger btn-lg margin-right">Delete</a>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-danger">Delete </button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel and Return to Customer Detail</button>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @Html.ActionLink("Edit Location", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
+
+                    <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger margin-right">Delete Location</a>
                     <div class="modal" id="deleteCustomerLocationModal+@customerLocation.CustomerLocationId" tabindex="-1" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 @using (Html.BeginForm("Delete", "CustomerLocation", new { id = customerLocation.CustomerLocationId, customerId = customerLocation.CustomerId }))
                                 {
-                                    <input type="hidden" value="@customerLocation.CustomerLocationId" name="Id" />
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete @customerLocation.Address?</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -134,7 +167,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        Are you sure you want to delete this address? It cannot be restored to the customer List.
+                                        Are you sure you want to delete this address? It cannot be restored to the customer.
                                     </div>
 
                                     <div class="modal-footer">
