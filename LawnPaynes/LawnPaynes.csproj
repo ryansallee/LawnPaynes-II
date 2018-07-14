@@ -98,20 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ServiceController.cs" />
-    <Compile Include="Controllers\ServiceCustomerLocationController.cs" />
     <Compile Include="Migrations\201807081911425_ServicesAdded.cs" />
     <Compile Include="Migrations\201807081911425_ServicesAdded.Designer.cs">
       <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807140323065_ServiceCustomerLocationJunctionTable.cs" />
-    <Compile Include="Migrations\201807140323065_ServiceCustomerLocationJunctionTable.Designer.cs">
-      <DependentUpon>201807140323065_ServiceCustomerLocationJunctionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807140425207_UpdatedCompositePrimaryKey.cs" />
-    <Compile Include="Migrations\201807140425207_UpdatedCompositePrimaryKey.Designer.cs">
-      <DependentUpon>201807140425207_UpdatedCompositePrimaryKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
@@ -289,12 +279,6 @@
     <EmbeddedResource Include="Migrations\201807081911425_ServicesAdded.resx">
       <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807140323065_ServiceCustomerLocationJunctionTable.resx">
-      <DependentUpon>201807140323065_ServiceCustomerLocationJunctionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807140425207_UpdatedCompositePrimaryKey.resx">
-      <DependentUpon>201807140425207_UpdatedCompositePrimaryKey.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -302,9 +286,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ServiceCustomerLocation\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
