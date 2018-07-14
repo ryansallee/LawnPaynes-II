@@ -10,6 +10,6 @@ namespace LawnPaynes.Models
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
 
-        public ICollection<CustomerLocation> CustomerLocations { get; set; }
+        public ICollection<ServiceCustomerLocation> CustomerLocations { get; } = new List<ServiceCustomerLocation>();
     }
 }

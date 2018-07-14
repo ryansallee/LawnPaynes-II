@@ -102,7 +102,16 @@
     <Compile Include="Migrations\201807081911425_ServicesAdded.Designer.cs">
       <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807141640134_CustomerLocationMaptoServicesJunctionTable.cs" />
+    <Compile Include="Migrations\201807141640134_CustomerLocationMaptoServicesJunctionTable.Designer.cs">
+      <DependentUpon>201807141640134_CustomerLocationMaptoServicesJunctionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807141710433_RedoServiceCustomerLocationTable.cs" />
+    <Compile Include="Migrations\201807141710433_RedoServiceCustomerLocationTable.Designer.cs">
+      <DependentUpon>201807141710433_RedoServiceCustomerLocationTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
     <None Include="packages.config" />
@@ -278,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807081911425_ServicesAdded.resx">
       <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807141640134_CustomerLocationMaptoServicesJunctionTable.resx">
+      <DependentUpon>201807141640134_CustomerLocationMaptoServicesJunctionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807141710433_RedoServiceCustomerLocationTable.resx">
+      <DependentUpon>201807141710433_RedoServiceCustomerLocationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

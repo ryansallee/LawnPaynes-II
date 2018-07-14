@@ -111,9 +111,10 @@
                         var customerLocationID = customerLocation.CustomerLocationId;
                     }
 
-                    @foreach (var locationService in customerLocation.Services)
+                    @foreach (var locationService in customerLocation.ServiceCustomerLocations)
                     {
-                        <p class="card-text"> @locationService.ServiceName </p>
+                        <p class="card-text"> @locationService.Service.ServiceName </p>
+                        @locationService.CustomerLocation.CustomerLocationId
                     }
 
                     @Html.ActionLink("Edit", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary btn-lg margin-right" })

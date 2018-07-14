@@ -55,7 +55,7 @@ namespace LawnPaynes.Controllers
 
                 var customer = Context.Customers
                 .Include(c => c.CustomerLocations)
-                .Include("CustomerLocations.Services")
+                .Include("CustomerLocations.ServiceCustomerLocations.Service")
                 .Where(c => c.CustomerId == id)
                 .SingleOrDefault();
 
