@@ -119,6 +119,7 @@
     <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
+    <Compile Include="ViewModels\ServiceCustomerLocationAddViewModel.cs" />
     <None Include="packages.config" />
     <Content Include="Content\img\contact_us.svg" />
     <Content Include="Content\img\Edging.jpg" />
@@ -222,6 +223,7 @@
     <Content Include="Views\Service\Add.cshtml" />
     <Content Include="Views\Service\_ServiceForm.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\ServiceCustomerLocation\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -309,9 +311,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ServiceCustomerLocation\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
