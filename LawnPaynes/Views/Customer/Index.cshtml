@@ -6,8 +6,9 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
-
-    <div class="d-flex justify-content-end">
+        
+    <div class="d-flex justify-content-around">
+        <p>Total Customers: @Model.Count</p>
         @Html.ActionLink("Add Customer", "Add", null, new { @class = "btn btn-primary " })
     </div>
 

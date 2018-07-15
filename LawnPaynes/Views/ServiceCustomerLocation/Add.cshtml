@@ -1,9 +1,28 @@
-﻿
+﻿@model LawnPaynes.ViewModels.ServiceCustomerLocationAddViewModel
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Add Service to " + Model.CustomerLocation.Address;
 }
 
-<h2>Add</h2>
+<h2 class="text-center">@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.CustomerId, new { @value = Model.CustomerId})
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.ServiceId, "Service :", new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-4 col-lg-3">
+            @Html.DropDownListFor(m => m.ServiceId, Model.ServiceSelectListItems, new { @class = "form-control form-control-lg" })
+        </div>
+    </div>
+   
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="pad-top">
+                <button type="submit" class="btn btn-success btn-lg ">
+                    <span class="glyphicon glyphicon-save"></span> Save
+                </button>
+                @Html.ActionLink("Cancel", "Detail", "Customer", new { id = Model.CustomerId }, new { @class = "btn btn-danger btn-lg " })
+            </div>
+        </div>
+    </div>
 
-@Html.DropDownListFor
-
+}

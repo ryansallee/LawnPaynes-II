@@ -96,7 +96,7 @@
             </div>
 
 </div>
-
+<br />
 <div class="container col-12 col-xl-8">
     <div class="row justify-content-center pad-top">
         @foreach (var customerLocation in Model.CustomerLocations)
@@ -152,7 +152,7 @@
                     </table>
 
                     @Html.ActionLink("Edit Location", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
-
+                    @Html.ActionLink("Add Service", "Add", "ServiceCustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId}, new { @class="btn btn-success margin-right"})
                     <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger margin-right">Delete Location</a>
                     <div class="modal" id="deleteCustomerLocationModal+@customerLocation.CustomerLocationId" tabindex="-1" role="dialog">
                         <div class="modal-dialog">
@@ -184,7 +184,7 @@
         }
     </div>
 </div>
-
+<br />
 <div class="container col-12 col-md-8 text-white text-center">
     <div class="row justify-content-center">
         <div class="pad-top">

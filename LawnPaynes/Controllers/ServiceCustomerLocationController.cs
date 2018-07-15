@@ -34,16 +34,18 @@ namespace LawnPaynes.Controllers
 
             var viewModel = new ServiceCustomerLocationAddViewModel()
             {
-                CustomerLocation = customerLocation
+                CustomerLocation = customerLocation                
             };
 
             viewModel.Initialize(Context);
+            viewModel.CustomerId = customerLocation.CustomerId;
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Add(ServiceCustomerLocationAddViewModel viewModel)
         {
+            // Client-Side verification??
             var serviceCustomerLocation = new ServiceCustomerLocation()
             {
                 CustomerLocationId = viewModel.CustomerLocationId,
@@ -51,8 +53,9 @@ namespace LawnPaynes.Controllers
             };
 
             Context.ServiceCustomerLocations.Add(serviceCustomerLocation);
+            Context.SaveChanges();
 
-            return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerLocation.CustomerId });
+            return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
 
         }
     }
