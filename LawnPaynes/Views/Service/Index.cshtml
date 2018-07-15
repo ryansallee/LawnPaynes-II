@@ -5,51 +5,54 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-around">
+    <h3 class="font-weight-bold">Total Services: @Model.Count</h3>
     @Html.ActionLink("Add Service", "Add", null, new { @class = "btn btn-primary " })
 </div>
-
-<table class="table table-striped text-center">
-    <thead>
-        <tr>
-            <th>Service Name</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var service in Model)
-        {
+<br />
+<div class="d-flex justify-content-center table-responsive">
+    <table class="col-11 table table-sm table text-center border border-dark">
+        <thead class="thead-dark">
             <tr>
-                <td>@service.ServiceName</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = service.ServiceId }, new { @class = "btn btn-primary btn-xs margin-right" })
-                    <a data-toggle="modal" href="#deleteServiceModal+@service.ServiceId" class="btn btn-danger btn-xs margin-right">Delete</a>
-                    <div class="modal" id="deleteServiceModal+@service.ServiceId" tabindex="-1" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                @using (Html.BeginForm("Delete", "Service", new { id = service.ServiceId }))
-                                {
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Delete @service.ServiceName</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
+                <th>Service Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var service in Model)
+            {
+                <tr class="bg-light">
+                    <td>@service.ServiceName</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = service.ServiceId }, new { @class = "btn btn-primary btn-xs margin-right" })
+                        <a data-toggle="modal" href="#deleteServiceModal+@service.ServiceId" class="btn btn-danger btn-xs margin-right">Delete</a>
+                        <div class="modal" id="deleteServiceModal+@service.ServiceId" tabindex="-1" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    @using (Html.BeginForm("Delete", "Service", new { id = service.ServiceId }))
+                                    {
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Delete @service.ServiceName?</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
 
-                                    <div class="modal-body">
-                                        Are you sure you want to delete @service.ServiceName? They cannot be restored to the Service List.
-                                    </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete @service.ServiceName? This service cannot be restored to the service list.
+                                        </div>
 
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger">Delete Customer</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel and Return to Customer List</button>
-                                    </div>
-                                }
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-danger">Delete @service.ServiceName</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel and Return to Service List</button>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

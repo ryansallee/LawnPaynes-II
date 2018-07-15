@@ -23,6 +23,7 @@ namespace LawnPaynes.Controllers
 
             var customerLocation = Context.CustomerLocations
                 .Where(cl => cl.CustomerLocationId == id)
+                .Include(cl =>cl.Customer)
                 .SingleOrDefault();
 
             if (customerLocation == null)
@@ -32,7 +33,8 @@ namespace LawnPaynes.Controllers
 
             var viewModel = new CustomerLocationEditViewModel()
             {
-                CustomerLocation = customerLocation
+                CustomerLocation = customerLocation,
+                Customer = customerLocation.Customer
             };
 
              return View(viewModel);

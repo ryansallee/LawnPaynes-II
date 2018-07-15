@@ -1,17 +1,17 @@
 ﻿@model  LawnPaynes.ViewModels.CustomerLocationEditViewModel
 @{
-    ViewBag.Title = "Edit Address for customer: " + Model.Customer.Name;
+    ViewBag.Title = "Edit Address for Customer " + Model.Customer.Name;
 }
 
-<h2>ViewBag.Title</h2>
-@Model.CustomerLocation.CustomerId
+<h2 class="text-center">@ViewBag.Title</h2>
+<br />
 
 @using (Html.BeginForm("Edit", "CustomerLocation", new { customerId = Model.CustomerLocation.CustomerId }))
 {
     @Html.Partial("_CustomerLocationForm")
 
 
-
+    
     <div class="row text-center">
         <div class="col-12">
             <div class="pad-top">
