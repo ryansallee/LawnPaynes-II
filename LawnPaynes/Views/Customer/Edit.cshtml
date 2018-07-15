@@ -11,13 +11,13 @@
     @Html.Partial("_CustomerForm")
 
     <br />
-    <div class="container col-12 col-md-8 text-white text-center">
-        <div class="row justify-content-center">
+    <div class="row text-center">
+        <div class="col-12">
             <div class="pad-top">
-                <button type="submit" class="btn btn-success btn-lg ">
+                <button type="submit" class="btn btn-success btn-lg mr-md-2 ">
                     <span class="glyphicon glyphicon-save"></span> Save
                 </button>
-                @Html.ActionLink("Cancel", "Detail", new { id = Model.Id }, new { @class = "btn btn-danger btn-lg" })
+                @Html.ActionLink("Cancel", "Detail", new { id = Model.Id }, new { @class = "btn btn-danger btn-lg mr-md-2" })
                 @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg" })
 
             </div>
