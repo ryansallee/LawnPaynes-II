@@ -103,8 +103,9 @@
         {
             <div class="card text-center">
                 <div class="card-body bg-light">
-                    <h5 class="card-title"> Location &amp Services </h5>
+                    <h5 class="card-title"> Location Detals </h5>
 
+                    <h6>Address</h6>
                     <p class="card-text">@customerLocation.Address</p>
 
                     <table class="table text-center">
@@ -151,7 +152,7 @@
                         </tbody>
                     </table>
 
-                    @Html.ActionLink("Edit Location", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
+                    @Html.ActionLink("Edit Address", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
                     @Html.ActionLink("Add Service", "Add", "ServiceCustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId}, new { @class="btn btn-success margin-right"})
                     <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger margin-right">Delete Location</a>
                     <div class="modal" id="deleteCustomerLocationModal+@customerLocation.CustomerLocationId" tabindex="-1" role="dialog">
@@ -189,8 +190,8 @@
 <div class="row text-center">
     <div class="col-12">
         <div class="pad-top">
-            @Html.ActionLink("Edit "+ Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg" })
-            @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Edit "+ Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mr-2" })
+            @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg mr-2" })
             @Html.ActionLink("Add Address for "+ Model.Name, "Add", "CustomerLocation", new { customerId = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mt-1 mt-md-0" })
         </div>
     </div>
