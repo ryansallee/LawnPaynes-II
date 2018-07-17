@@ -1,8 +1,10 @@
 ﻿@model LawnPaynes.ViewModels.CustomerBaseViewModel
 
-<div class="form-group row justify-content-center">
-    @Html.LabelFor(m => m.CustomerLocation.Address, new { @class = "col-10 col-sm-2 col-form-label" })
-    <div class="col-10 col-sm-7 col-lg-5">
-        @Html.TextBoxFor(m => m.CustomerLocation.Address, new { @class = "form-control form-control-lg" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.CustomerLocation.Address, new { @class = "col-10 col-sm-2 col-form-label" })
+        <div class="col-10 col-sm-7 col-lg-5">
+            @Html.TextBoxFor(m => m.CustomerLocation.Address, new { @class = "form-control form-control-lg" })
+        </div>
     </div>
 </div>
