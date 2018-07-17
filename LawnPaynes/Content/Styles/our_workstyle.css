@@ -15,6 +15,7 @@ the images in the slide container are flexed with the default flex direction and
     border-radius: 25px;
     box-shadow: 5px 5px 5px rgb(113, 119, 119);
     justify-content: center;
+    padding-top: 5px;
 }
 
 
@@ -38,7 +39,8 @@ figcaption {
     margin-top: 1px;
 }
 
-button:nth-of-type(1n+2){
+#pause, #resume, #next, #previous
+{
     display: none;
 }
 

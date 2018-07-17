@@ -187,12 +187,14 @@
 </div>
 <br />
 
-<div class="row text-center">
-    <div class="col-12">
-        <div class="pad-top">
-            @Html.ActionLink("Edit "+ Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mr-2" })
-            @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg mr-2" })
-            @Html.ActionLink("Add Address for "+ Model.Name, "Add", "CustomerLocation", new { customerId = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mt-1 mt-md-0" })
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="pad-top">
+                @Html.ActionLink("Edit " + Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mr-2" })
+                @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg mr-2" })
+                @Html.ActionLink("Add Address for " + Model.Name, "Add", "CustomerLocation", new { customerId = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mt-1 mt-md-0" })
+            </div>
         </div>
     </div>
 </div>

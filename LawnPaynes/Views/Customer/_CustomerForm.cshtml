@@ -2,41 +2,47 @@
 
 
 
-
-<div class="form-group row justify-content-center">
-    @Html.LabelFor(m => m.Customer.Name, new { @class = "col-10 col-sm-2 col-form-label" })
-    <div class="col-10 col-sm-4 col-lg-3">
-        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.Customer.Name, new { @class = "col-10 col-sm-2 col-form-label" })
+        <div class="col-10 col-sm-6 col-lg-4">
+            @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg" })
+        </div>
     </div>
 </div>
 
-<div class="form-group row justify-content-center">
-    <div class="col-10 col-sm-2">New Customer</div>
-    <div class="col-10 col-sm-4 col-lg-3">
-        @Html.CheckBoxFor(m => m.Customer.IsNew, new { @class = "form-check-label" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        <div class="col-10 col-sm-2">New Customer</div>
+        <div class="col-10 col-sm-6 col-lg-4">
+            @Html.CheckBoxFor(m => m.Customer.IsNew, new { @class = "form-check-label" })
 
+        </div>
     </div>
 </div>
 
-<div class="form-group row justify-content-center">
-    @Html.LabelFor(m => m.Customer.Email, new { @class = "col-10 col-sm-2 col-form-label" })
-    <div class="col-10 col-sm-4 col-lg-3">
-        @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control form-control-lg" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.Customer.Email, new { @class = "col-10 col-sm-2 col-form-label" })
+        <div class="col-10 col-sm-6 col-lg-4">
+            @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control form-control-lg" })
+        </div>
     </div>
 </div>
-
-<div class="form-group row justify-content-center">
-    @Html.LabelFor(m => m.Customer.PhoneNumber, new { @class = "col-10 col-sm-2 col-form-label" })
-    <div class="col-10 col-sm-4 col-lg-3">
-        @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @class = "form-control form-control-lg" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.Customer.PhoneNumber, new { @class = "col-10 col-sm-2 col-form-label" })
+        <div class="col-10 col-sm-6 col-lg-4">
+            @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @class = "form-control form-control-lg" })
+        </div>
     </div>
 </div>
-
-<div class="form-group row justify-content-center">
-    @Html.LabelFor(m => m.Customer.Comments, new { @class = "col-10 col-sm-2 col-form-label" })
-    <div class="col-10 col-sm-4 col-lg-3">
-        @Html.TextAreaFor(m => m.Customer.Comments, new { @class = "form-control form-control-lg", @rows="10" })
+<div class="container">
+    <div class="form-group row justify-content-center">
+        @Html.LabelFor(m => m.Customer.Comments, new { @class = "col-10 col-sm-2 col-form-label" })
+        <div class="col-10 col-sm-6 col-lg-4">
+            @Html.TextAreaFor(m => m.Customer.Comments, new { @class = "form-control form-control-lg", @rows = "10" })
+        </div>
     </div>
 </div>
-
 
