@@ -2,34 +2,49 @@
 
 <html>
 <head>
+    
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#218021">
     <link rel="stylesheet" href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/AdminBaseStyles.css")" />
     <link href="@Url.Content("https://fonts.googleapis.com/css?family=Fjalla+One")" rel="stylesheet">
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <h1 class="navbar-brand">@Html.ActionLink("Lawn Paynes Customer Manager", "Index", "Admin")</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon "></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li>@Html.ActionLink("Customers", "Index", "Customer", null, new { @class = "nav-item nav-link" })</li>
-                <li>@Html.ActionLink("Services", "Index", "Service", null, new { @class = "nav-item nav-link" })<li>
-            </ul>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <h1 class="navbar-brand">@Html.ActionLink("Lawn Paynes Manager", "Index", "Admin")</h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav text-white">
+                        <li>@Html.ActionLink("Customers", "Index", "Customer", null, new { @class = "nav-item nav-link text-dark mr-md-4" })</li>
+                        <li>@Html.ActionLink("Services", "Index", "Service", null, new { @class = "nav-item nav-link text-dark" })
+                        <li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+        <div>
+            @RenderBody()
         </div>
-
-    </nav>
-</header>
-
-    <div>
-        @RenderBody()
     </div>
-
+    <footer class="footer mt-1">
+        <h3 class="foot-name">Lawn Paynes</h3>
+        <div class="foot-nav">
+            <a href="mailto:notarealemailaddress@gmail.com">Email Us!</a>
+            <a id="telephone">(502) 111-1111</a>
+            @Html.ActionLink("Home", "Index", "Home") <br>
+            <p class="ryan">Site by <a href="mailto:rcsall11@g.holycross.edu">Ryan Sallee</a></p>
+            <p class="disclaimer"> The resemblence of this site to any actual businesses is purely coincidental.</p>
+            <p class="cool-stuff">@Html.ActionLink("Cool Stuff", "Index", "Admin")</p>
+        </div>
+    </footer>
 
 
     <script src="@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")"></script>

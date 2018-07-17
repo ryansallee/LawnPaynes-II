@@ -12,9 +12,10 @@ with flex due to a bug with IE in respect to flex, the flex 1 0 auto is used. */
     flex: 1 0 auto;
     width: 97.5%;
     background: white;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius: 25px;
     box-shadow: 5px 5px 5px rgb(113, 119, 119);
+    padding-bottom: 5px;
 }
 
 form {
@@ -125,7 +126,7 @@ input[type="button"] {
 @media (min-width: 640px) {
     .contactForm {
         width: 95%;
-        margin: 97.5px auto 10px;
+        margin: 20px auto 20px;
     }
     .inputs,
     .checks {
@@ -146,7 +147,7 @@ input[type="button"] {
 @media (min-width: 1200px) {
     .contactForm {
         width: 92.5%;
-        margin: 72px auto 10px;
+        margin: 20px auto 20px;
     }
     .inputs,
     .checks {

@@ -138,6 +138,7 @@
     <Content Include="Content\Scripts\lawn_slide_show.js" />
     <Content Include="Content\Scripts\services_fadein.js" />
     <Content Include="Content\Scripts\spring.js" />
+    <Content Include="Content\Styles\AdminBaseStyles.css" />
     <Content Include="Content\Styles\contact.css" />
     <Content Include="Content\Styles\services.css" />
     <Content Include="Content\Styles\basestyles.css" />

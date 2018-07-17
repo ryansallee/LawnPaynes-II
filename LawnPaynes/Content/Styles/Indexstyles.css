@@ -79,7 +79,7 @@ img[alt^="A recent"] {
     /* Main Content Styles  */
     .main-content {
         width: 95%;
-        margin: 20px auto 55% auto;
+        margin: 20px auto 0 auto;
     }
 
     .intro-container {
@@ -90,9 +90,7 @@ img[alt^="A recent"] {
         width: 55%;
     }
     /* Footer Styles */
-    .footer {
-        margin-top: -10%;
-    }
+
 }
 
 @media (min-width: 990px) {
@@ -115,8 +113,5 @@ img[alt^="A recent"] {
     img[alt^="A recent"] {
         width: 40%;
     }
-    /* Footer Styles */
-    .footer {
-        margin-top: 0;
-    }
+
 }
