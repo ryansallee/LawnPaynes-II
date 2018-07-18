@@ -30,11 +30,16 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Add(Service service)
         {
-            Context.Services.Add(service);
-            Context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                Context.Services.Add(service);
+                Context.SaveChanges();
 
-            TempData["Message"] = "Service: " + service.ServiceName + " was successfully added!";
-            return RedirectToAction("Index");
+                TempData["Message"] = "Service: " + service.ServiceName + " was successfully added!";
+                return RedirectToAction("Index");
+            }
+
+            return View(service);
         }
 
         public ActionResult Edit(int? id)
@@ -59,11 +64,16 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Edit(Service service)
         {
-            Context.Entry(service).State = EntityState.Modified;
-            Context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                Context.Entry(service).State = EntityState.Modified;
+                Context.SaveChanges();
 
-            TempData["Message"] = "The update to the service was successful!";
-            return RedirectToAction("Index");
+                TempData["Message"] = "The update to the service was successful!";
+                return RedirectToAction("Index");
+            }
+
+            return View(service);
         }
 
         [HttpPost]

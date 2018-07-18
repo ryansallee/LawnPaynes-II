@@ -10,10 +10,13 @@ namespace LawnPaynes.Models
     {
         public int CustomerId { get; set; }
         
+        [Required]
         public string Name { get; set; }
         [Display(Name ="New Customer")]
         public bool IsNew { get; set; }
         [Display(Name = "Phone Number")]
+        [Required]
+        [Phone(ErrorMessage = "The phone number provided is not a valid phone number.")]
         public string PhoneNumber { get; set; }
         public string Comments { get; set; }
         [EmailAddress(ErrorMessage = "The email provided is not a valid email address")]

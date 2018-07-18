@@ -119,6 +119,18 @@
     <Compile Include="Migrations\201807181628231_TestEmailAddressValudation.Designer.cs">
       <DependentUpon>201807181628231_TestEmailAddressValudation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807182150024_AdditionalCustomerValidation.cs" />
+    <Compile Include="Migrations\201807182150024_AdditionalCustomerValidation.Designer.cs">
+      <DependentUpon>201807182150024_AdditionalCustomerValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807182212433_RemovedEmailAsRequired.cs" />
+    <Compile Include="Migrations\201807182212433_RemovedEmailAsRequired.Designer.cs">
+      <DependentUpon>201807182212433_RemovedEmailAsRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807182226172_AddedServiceandCustomerLocationValidation.cs" />
+    <Compile Include="Migrations\201807182226172_AddedServiceandCustomerLocationValidation.Designer.cs">
+      <DependentUpon>201807182226172_AddedServiceandCustomerLocationValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
@@ -305,6 +317,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807181628231_TestEmailAddressValudation.resx">
       <DependentUpon>201807181628231_TestEmailAddressValudation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807182150024_AdditionalCustomerValidation.resx">
+      <DependentUpon>201807182150024_AdditionalCustomerValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807182212433_RemovedEmailAsRequired.resx">
+      <DependentUpon>201807182212433_RemovedEmailAsRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807182226172_AddedServiceandCustomerLocationValidation.resx">
+      <DependentUpon>201807182226172_AddedServiceandCustomerLocationValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,7 @@
         <h2>Contact Us!</h2>
         <p> Complete the form below and we will contact you!</p>
         @Html.Partial("_Message")
+        @Html.ValidationSummary("Please correct the following errors:", new { @class ="alert alert-danger"})
         <div class="inputs">
             @Html.HiddenFor(m => m.Customer.IsNew, new { @Value = "true" })
             <span class="asterisk">*</span>

@@ -22,6 +22,7 @@ namespace LawnPaynes.Migrations
                 CustomerId = 1,
                 Name = "John Doe",
                 IsNew = true,
+                PhoneNumber = "(345)-678-1234",
                 Email = "john@google.com"
             };
 
@@ -33,6 +34,7 @@ namespace LawnPaynes.Migrations
                 CustomerId = 2,
                 Name = "Jane Doe",
                 IsNew = false,
+                PhoneNumber = "(800)-123-4567",
                 Email = "jane@google.com"
             };
 
