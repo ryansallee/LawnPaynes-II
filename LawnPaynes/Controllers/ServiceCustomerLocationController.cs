@@ -18,6 +18,17 @@ namespace LawnPaynes.Controllers
             Context.ServiceCustomerLocations.Remove(serviceCustomerLocation);
             Context.SaveChanges();
 
+            var serviceDeleted = Context.Services
+                .Where(s => s.ServiceId == serviceId)
+                .Select(s => s.ServiceName)
+                .SingleOrDefault();
+
+            var address = Context.CustomerLocations
+                .Where(cl => cl.CustomerLocationId == customerLocationId)
+                .Select(cl => cl.Address)
+                .SingleOrDefault();
+
+            TempData["Message"] = serviceDeleted + " was removed from " + address + "!";
             return RedirectToAction("Detail", "Customer", new { id = customerId });
         }
 
@@ -55,6 +66,17 @@ namespace LawnPaynes.Controllers
             Context.ServiceCustomerLocations.Add(serviceCustomerLocation);
             Context.SaveChanges();
 
+            var serviceAdded = Context.Services
+                .Where(s => s.ServiceId == serviceCustomerLocation.ServiceId)
+                .Select(s => s.ServiceName)
+                .SingleOrDefault();
+
+            var address = Context.CustomerLocations
+                .Where(cl => cl.CustomerLocationId == serviceCustomerLocation.CustomerLocationId)
+                .Select(cl => cl.Address)
+                .SingleOrDefault();
+
+            TempData["Message"] = serviceAdded + " was added to " + address + "!";
             return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
 
         }

@@ -33,6 +33,7 @@ namespace LawnPaynes.Controllers
             Context.Services.Add(service);
             Context.SaveChanges();
 
+            TempData["Message"] = "Service: " + service.ServiceName + " was successfully added!";
             return RedirectToAction("Index");
         }
 
@@ -61,6 +62,7 @@ namespace LawnPaynes.Controllers
             Context.Entry(service).State = EntityState.Modified;
             Context.SaveChanges();
 
+            TempData["Message"] = "The update to the service was successful!";
             return RedirectToAction("Index");
         }
 
@@ -71,6 +73,7 @@ namespace LawnPaynes.Controllers
             Context.Services.Remove(service);
             Context.SaveChanges();
 
+            TempData["Message"] = service.ServiceName + " was deleted!";
             return RedirectToAction("Index");
         }
     }
