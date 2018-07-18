@@ -39,6 +39,7 @@ namespace LawnPaynes.Controllers
                 Context.Customers.Add(customer);
                 Context.SaveChanges();
 
+                TempData["Message"] =  customer.Name + " was successfully added!";
                 return RedirectToAction("Index");
             }
 
@@ -107,7 +108,8 @@ namespace LawnPaynes.Controllers
                     Context.Entry(customer).State = EntityState.Modified;
                     Context.SaveChanges();
 
-                    return RedirectToAction("Detail", new {id = customer.CustomerId});
+                TempData["Message"] = customer.Name + " was successfully updated!";
+                return RedirectToAction("Detail", new {id = customer.CustomerId});
                 }
 
                 return View(viewModel);
@@ -121,7 +123,8 @@ namespace LawnPaynes.Controllers
                 Context.Customers.Remove(customer);
                 Context.SaveChanges();
 
-                return RedirectToAction("Index");
+            TempData["Message"] = customer.Name + " was successfully deleted!";
+            return RedirectToAction("Index");
             }
     }
 }

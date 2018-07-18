@@ -45,6 +45,7 @@ namespace LawnPaynes.Controllers
                 Context.Customers.Add(customer);
                 Context.SaveChanges();
 
+                TempData["Message"] = "Thank you for contacting us! We will get in touch with you shortly!";
                 return RedirectToAction("Contact");
             }
 

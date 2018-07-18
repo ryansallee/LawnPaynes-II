@@ -6,8 +6,13 @@
 }
 
 <h2 class="text-center">@Model.Name</h2>
-<br />
-<div class="container col-12 col-xl-6 text-center bg-light rounded border">
+
+<div class="d-flex justify-content-center">
+    <div class="col-11">
+        @Html.Partial("_Message")
+    </div>
+</div>
+<div class="container col-11 col-xl-6 text-center bg-light rounded border">
     <div class="row justify-content-center ">
         <div class="col-5 col-xl-6">
             <h5>
@@ -56,48 +61,48 @@
         }
     }
 
-            <div class="row justify-content-center">
-                <div class="col-5 col-xl-6">
-                    <h5>
-                        @Html.LabelFor(m => m.Email):
-                    </h5>
-                </div>
-                <div class="col-7 col-xl-6">
-                    <h5>
-                        @Model.Email
-                    </h5>
-                </div>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-5 col-xl-6">
+            <h5>
+                @Html.LabelFor(m => m.Email):
+            </h5>
+        </div>
+        <div class="col-7 col-xl-6">
+            <h5>
+                @Model.Email
+            </h5>
+        </div>
+    </div>
 
-            <div class="row justify-content-center">
-                <div class="col-5 col-xl-6">
-                    <h5>
-                        @Html.LabelFor(m => m.PhoneNumber, "Phone:")
-                    </h5>
-                </div>
-                <div class="col-7 col-xl-6">
-                    <h5>
-                        @Model.PhoneNumber
-                    </h5>
-                </div>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-5 col-xl-6">
+            <h5>
+                @Html.LabelFor(m => m.PhoneNumber, "Phone:")
+            </h5>
+        </div>
+        <div class="col-7 col-xl-6">
+            <h5>
+                @Model.PhoneNumber
+            </h5>
+        </div>
+    </div>
 
-            <div class="row justify-content-center ">
-                <div class="col-5 col-xl-6">
-                    <h5>
-                        @Html.LabelFor(m => m.Comments):
-                    </h5>
-                </div>
-                <div class="col-7 col-xl-6">
-                    <h5>
-                        @Model.Comments
-                    </h5>
-                </div>
-            </div>
+    <div class="row justify-content-center ">
+        <div class="col-5 col-xl-6">
+            <h5>
+                @Html.LabelFor(m => m.Comments):
+            </h5>
+        </div>
+        <div class="col-7 col-xl-6">
+            <h5>
+                @Model.Comments
+            </h5>
+        </div>
+    </div>
 
 </div>
 <br />
-<div class="container col-12 col-xl-8">
+<div class="container col-11 col-xl-8">
     <div class="row justify-content-center pad-top">
         @foreach (var customerLocation in Model.CustomerLocations)
         {
@@ -153,12 +158,12 @@
                     </table>
 
                     @Html.ActionLink("Edit Address", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
-                    @Html.ActionLink("Add Service", "Add", "ServiceCustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId}, new { @class="btn btn-success margin-right"})
+                    @Html.ActionLink("Add Service", "Add", "ServiceCustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId }, new { @class = "btn btn-success margin-right" })
                     <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger margin-right">Delete Location</a>
                     <div class="modal" id="deleteCustomerLocationModal+@customerLocation.CustomerLocationId" tabindex="-1" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                @using (Html.BeginForm("Delete", "CustomerLocation", new { id = customerLocation.CustomerLocationId, customerId = customerLocation.CustomerId }))
+                                @using (Html.BeginForm("Delete", "CustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId, customerId = customerLocation.CustomerId }))
                                 {
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete @customerLocation.Address?</h4>
@@ -191,11 +196,11 @@
     <div class="row text-center">
         <div class="col-12">
             <div class="pad-top">
-                @Html.ActionLink("Edit " + Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mr-2" })
-                @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg mr-2" })
+                @Html.ActionLink("Edit " + Model.Name, "Edit", new { id = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mr-2 mt-1 md-0"  })
+                @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg mr-2 mt-1 mt-md-0" })
                 @Html.ActionLink("Add Address for " + Model.Name, "Add", "CustomerLocation", new { customerId = Model.CustomerId }, new { @class = "btn btn-primary btn-lg mt-1 mt-md-0" })
             </div>
         </div>
     </div>
 </div>
-  
+

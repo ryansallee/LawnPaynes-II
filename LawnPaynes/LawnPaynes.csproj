@@ -225,6 +225,7 @@
     <Content Include="Views\Service\_ServiceForm.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
     <Content Include="Views\ServiceCustomerLocation\Add.cshtml" />
+    <Content Include="Views\Shared\_Message.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

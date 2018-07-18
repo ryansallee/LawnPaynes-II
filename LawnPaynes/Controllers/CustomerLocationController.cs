@@ -42,17 +42,16 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(CustomerLocationEditViewModel viewModel/*, int customerId*/)
+        public ActionResult Edit(CustomerLocationEditViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 var customerLocation = viewModel.CustomerLocation;
-                ////Appears to be Hacky Code. Ask about.
-                //customerLocation.CustomerId = customerId;
-
+                
                 Context.Entry(customerLocation).State = EntityState.Modified;
                 Context.SaveChanges();
 
+                TempData["Message"] = "The address update was successful!";
                 return RedirectToAction("Detail", "Customer", new { id = customerLocation.CustomerId });
             }
 
@@ -90,6 +89,7 @@ namespace LawnPaynes.Controllers
                 Context.CustomerLocations.Add(customerLocation);
                 Context.SaveChanges();
 
+                TempData["Message"] = "A new location at " + customerLocation.Address + " has been added!";
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
@@ -97,12 +97,13 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, int customerId)
+        public ActionResult Delete(int customerLocationId, int customerId)
         {
-            var customerLocation = Context.CustomerLocations.Find(id);
+            var customerLocation = Context.CustomerLocations.Find(customerLocationId);
             Context.CustomerLocations.Remove(customerLocation);
             Context.SaveChanges();
 
+            TempData["Message"] = "The Location at " + customerLocation.Address + " has been deleted!";
             return RedirectToAction("Detail", "Customer", new { id = customerId });
         }
     }
