@@ -36,7 +36,6 @@
         </div>
 
         <div class="comments">
-            <span class="asterisk">*</span>
             @Html.LabelFor(m => m.Customer.Comments, "Comments :")
             <br>
             @Html.TextAreaFor(m => m.Customer.Comments, new {@placeholder = "Type your comments here.", id="comments", @rows ="10" })

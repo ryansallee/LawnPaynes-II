@@ -21,7 +21,8 @@ namespace LawnPaynes.Migrations
             {
                 CustomerId = 1,
                 Name = "John Doe",
-                IsNew = true
+                IsNew = true,
+                Email = "john@google.com"
             };
 
             context.Customers.AddOrUpdate(customer1);
@@ -31,7 +32,8 @@ namespace LawnPaynes.Migrations
             {
                 CustomerId = 2,
                 Name = "Jane Doe",
-                IsNew = false
+                IsNew = false,
+                Email = "jane@google.com"
             };
 
             context.Customers.AddOrUpdate(customer2);
