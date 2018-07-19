@@ -24,18 +24,17 @@ namespace LawnPaynes.Controllers
 
         public ActionResult Add()
         {
-            var viewModel = new CustomerAddViewModel();
+            var customer = new Customer();
 
-            return View(viewModel);
+            return View(customer);
         }
 
         [HttpPost]
-        public ActionResult Add(CustomerAddViewModel viewModel)
+        public ActionResult Add(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                var customer = viewModel.Customer;
-                
+                              
                 Context.Customers.Add(customer);
                 Context.SaveChanges();
 
@@ -43,7 +42,7 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(viewModel);
+            return View(customer);
         }
 
             public ActionResult Detail(int? id)
@@ -87,24 +86,16 @@ namespace LawnPaynes.Controllers
                     return HttpNotFound();
                 }
 
-                var viewModel = new CustomerEditViewModel()
-                {
-                    Customer = customer
-                };
                 
-               
-
-                return View(viewModel);
+                return View(customer);
 
             }
 
             [HttpPost]
-            public ActionResult Edit(CustomerEditViewModel viewModel)
+            public ActionResult Edit(Customer customer)
             {
                 if (ModelState.IsValid)
                 {
-                    var customer = viewModel.Customer;
-
                     Context.Entry(customer).State = EntityState.Modified;
                     Context.SaveChanges();
 
@@ -112,7 +103,7 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Detail", new {id = customer.CustomerId});
                 }
 
-                return View(viewModel);
+                return View(customer);
             }
             
 

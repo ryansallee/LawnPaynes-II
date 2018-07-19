@@ -1,4 +1,4 @@
-﻿@model LawnPaynes.ViewModels.CustomerAddViewModel
+﻿@model LawnPaynes.Models.Customer
 
 @section Styles{
     <link href="@Url.Content("~/Content/Styles/contact.css")" rel="stylesheet" type="text/css" />
@@ -17,29 +17,29 @@
         @Html.Partial("_Message")
         @Html.ValidationSummary("Please correct the following errors:", new { @class ="alert alert-danger"})
         <div class="inputs">
-            @Html.HiddenFor(m => m.Customer.IsNew, new { @Value = "true" })
+            @Html.HiddenFor(m => m.IsNew, new { @Value = "true" })
             <span class="asterisk">*</span>
-            @Html.LabelFor(m => m.Customer.Name, "Name :")
+            @Html.LabelFor(m => m.Name, "Name :")
             <br>
             <!-- Set the Name input as the field to autofocus on page load -->
-            @Html.TextBoxFor(m => m.Customer.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
+            @Html.TextBoxFor(m => m.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
             <br>
             <span class="asterisk">*</span>
-            @Html.LabelFor(m => m.Customer.Email, "Email :")
+            @Html.LabelFor(m => m.Email, "Email :")
             <br>
-            @Html.TextBoxFor(m => m.Customer.Email, new { @placeholder = "youremail@email.com", @id = "mail", @type = "email" })
+            @Html.TextBoxFor(m => m.Email, new { @placeholder = "youremail@email.com", @id = "mail", @type = "email" })
             <br>
             <span class="asterisk">*</span>
-            @Html.LabelFor(m => m.Customer.PhoneNumber, "Phone Number :")
+            @Html.LabelFor(m => m.PhoneNumber, "Phone Number :")
             <br>
-            @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @placeholder = "(123) 456-7890", @id = "phone", @type = "tel" })
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @placeholder = "(123) 456-7890", @id = "phone", @type = "tel" })
             <br>
         </div>
 
         <div class="comments">
-            @Html.LabelFor(m => m.Customer.Comments, "Comments :")
+            @Html.LabelFor(m => m.Comments, "Comments :")
             <br>
-            @Html.TextAreaFor(m => m.Customer.Comments, new {@placeholder = "Type your comments here.", id="comments", @rows ="10" })
+            @Html.TextAreaFor(m => m.Comments, new {@placeholder = "Type your comments here.", id="comments", @rows ="10" })
             <br>
         </div>
         <!-- Buttons to submit the contact form or reset their inputs -->

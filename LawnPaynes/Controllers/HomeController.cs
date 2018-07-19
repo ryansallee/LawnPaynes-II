@@ -1,4 +1,5 @@
 ﻿using LawnPaynes.Data;
+using LawnPaynes.Models;
 using LawnPaynes.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,17 +32,15 @@ namespace LawnPaynes.Controllers
         // GET: Contact
         public ActionResult Contact()
         {
-            var viewModel = new CustomerAddViewModel();
-            return View(viewModel);
+            var customer = new Customer();
+            return View(customer);
         }
 
         [HttpPost]
-        public ActionResult Contact(CustomerAddViewModel viewModel)
+        public ActionResult Contact(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                var customer = viewModel.Customer;
-
                 Context.Customers.Add(customer);
                 Context.SaveChanges();
 
@@ -49,7 +48,7 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Contact");
             }
 
-            return View(viewModel);
+            return View(customer);
         }
     }
 }

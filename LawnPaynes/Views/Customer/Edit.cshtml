@@ -1,7 +1,7 @@
-﻿@model LawnPaynes.ViewModels.CustomerEditViewModel
+﻿@model LawnPaynes.Models.Customer
 
 @{
-    ViewBag.Title = "Edit Customer: " + Model.Customer.Name;
+    ViewBag.Title = "Edit Customer: " + Model.Name;
 }
 
 <h2 class="text-center">@ViewBag.Title</h2>
@@ -16,7 +16,7 @@
         </div>
     </div>
     @Html.Partial("_CustomerForm")
-
+    @Html.HiddenFor(m => m.CustomerId);
     <br />
     <div class="container">
         <div class="row text-center">
@@ -25,7 +25,7 @@
                     <button type="submit" class="btn btn-success btn-lg mr-2 ">
                         <span class="glyphicon glyphicon-save"></span> Save
                     </button>
-                    @Html.ActionLink("Cancel", "Detail", new { id = Model.Id }, new { @class = "btn btn-danger btn-lg mr-2" })
+                    @Html.ActionLink("Cancel", "Detail", new { id = Model.CustomerId }, new { @class = "btn btn-danger btn-lg mr-2" })
                     @Html.ActionLink("Customer List", "Index", null, new { @class = "btn btn-primary btn-lg" })
 
                 </div>
