@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LawnPaynes.ViewModels
 {
-    public class CustomerLocationAddViewModel: CustomerBaseViewModel
+    public class CustomerLocationAddViewModel: CustomerLocationBaseViewModel
     {
 
         public int CustomerId

@@ -133,7 +133,7 @@
     </Compile>
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceCustomerLocation.cs" />
-    <Compile Include="ViewModels\CustomerBaseViewModel.cs" />
+    <Compile Include="ViewModels\CustomerLocationBaseViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationAddViewModel.cs" />
     <Compile Include="ViewModels\CustomerLocationEditViewModel.cs" />
     <Compile Include="ViewModels\ServiceCustomerLocationAddViewModel.cs" />

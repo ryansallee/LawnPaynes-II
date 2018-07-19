@@ -7,7 +7,7 @@ using LawnPaynes.Data;
 
 namespace LawnPaynes.ViewModels
 {
-    public abstract class CustomerBaseViewModel
+    public abstract class CustomerLocationBaseViewModel
     {
         public Customer Customer { get; set; } = new Customer();
         public CustomerLocation CustomerLocation { get; set; } = new CustomerLocation();
