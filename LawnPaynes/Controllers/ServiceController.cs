@@ -30,6 +30,8 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Add(Service service)
         {
+            ServiceValidator(service);
+
             if (ModelState.IsValid)
             {
                 Context.Services.Add(service);
@@ -64,6 +66,8 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Edit(Service service)
         {
+            ServiceValidator(service);
+
             if (ModelState.IsValid)
             {
                 Context.Entry(service).State = EntityState.Modified;
@@ -85,6 +89,19 @@ namespace LawnPaynes.Controllers
 
             TempData["Message"] = service.ServiceName + " was deleted!";
             return RedirectToAction("Index");
+        }
+
+        private void ServiceValidator(Service service)
+        {
+            if (ModelState.IsValidField("ServiceName") && ModelState.IsValidField("ServiceId"))
+            {
+                if (Context.Services
+                    .Any(s => s.ServiceName == service.ServiceName))
+                {
+                    ModelState.AddModelError("ServiceId", service.ServiceName + " already exists as a service!");
+                }
+            }
+
         }
     }
 }
