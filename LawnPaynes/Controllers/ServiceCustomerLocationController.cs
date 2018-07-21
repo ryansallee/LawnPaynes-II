@@ -1,9 +1,6 @@
 ﻿using LawnPaynes.Models;
 using LawnPaynes.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 
@@ -45,39 +42,59 @@ namespace LawnPaynes.Controllers
 
             var viewModel = new ServiceCustomerLocationAddViewModel()
             {
-                CustomerLocation = customerLocation                
+                CustomerLocation = customerLocation,
+                CustomerId = customerLocation.CustomerId,
+              
             };
 
             viewModel.Initialize(Context);
-            viewModel.CustomerId = customerLocation.CustomerId;
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Add(ServiceCustomerLocationAddViewModel viewModel)
         {
-            // Client-Side verification??
-            var serviceCustomerLocation = new ServiceCustomerLocation()
+            //Serverside Validation
+            ServiceCustomerLocationValidator(viewModel);
+            viewModel.CustomerLocation = Context.CustomerLocations
+                    .Where(cl => cl.CustomerLocationId ==viewModel.CustomerLocationId)
+                    .SingleOrDefault();
+
+            if (ModelState.IsValid)
             {
-                CustomerLocationId = viewModel.CustomerLocationId,
-                ServiceId = viewModel.ServiceId
-            };
+                var serviceCustomerLocation = new ServiceCustomerLocation()
+                {
+                    CustomerLocationId = viewModel.CustomerLocationId,
+                    ServiceId = viewModel.ServiceId
+                };
 
-            Context.ServiceCustomerLocations.Add(serviceCustomerLocation);
-            Context.SaveChanges();
+                Context.ServiceCustomerLocations.Add(serviceCustomerLocation);
+                Context.SaveChanges();
 
-            var serviceAdded = Context.Services
-                .Where(s => s.ServiceId == serviceCustomerLocation.ServiceId)
-                .Select(s => s.ServiceName)
-                .SingleOrDefault();
+                var serviceAdded = Context.Services
+                    .Where(s => s.ServiceId == serviceCustomerLocation.ServiceId)
+                    .Select(s => s.ServiceName)
+                    .SingleOrDefault();
 
-            var address = Context.CustomerLocations
-                .Where(cl => cl.CustomerLocationId == serviceCustomerLocation.CustomerLocationId)
-                .Select(cl => cl.Address)
-                .SingleOrDefault();
+                TempData["Message"] = serviceAdded + " was added to " + viewModel.CustomerLocation.Address + "!";
+                return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
+            }
 
-            TempData["Message"] = serviceAdded + " was added to " + address + "!";
-            return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
+            viewModel.Initialize(Context);
+            return View(viewModel);
+        }
+
+        private void ServiceCustomerLocationValidator(ServiceCustomerLocationAddViewModel viewModel)
+        {
+            if(ModelState.IsValidField("CustomerLocationId") && ModelState.IsValidField("ServiceId"))
+            {
+                if(Context.ServiceCustomerLocations
+                    .Any(scl => scl.CustomerLocationId == viewModel.CustomerLocationId &&
+                       scl.ServiceId == viewModel.ServiceId))
+                {
+                    ModelState.AddModelError("ServiceId", "This service already exists for this location!");
+                }
+            }
 
         }
     }

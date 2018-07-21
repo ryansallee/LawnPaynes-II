@@ -11,16 +11,16 @@ namespace LawnPaynes.ViewModels
 {
     public class ServiceCustomerLocationAddViewModel
     {
+        
         public int CustomerLocationId
         {
             get { return CustomerLocation.CustomerLocationId; }
             set { CustomerLocation.CustomerLocationId = value; }
         }
-
-        public int CustomerId { get; set; }
         public CustomerLocation CustomerLocation { get; set; } = new CustomerLocation();
+        public int CustomerId { get; set; }
         public int ServiceId { get; set; }
-        
+                
         public SelectList ServiceSelectListItems { get; set; }
 
         public void Initialize(LawnPaynesContext context)
