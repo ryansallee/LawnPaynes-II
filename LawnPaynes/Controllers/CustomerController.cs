@@ -33,8 +33,7 @@ namespace LawnPaynes.Controllers
         public ActionResult Add(Customer customer)
         {
             if (ModelState.IsValid)
-            {
-                              
+            {                         
                 Context.Customers.Add(customer);
                 Context.SaveChanges();
 

@@ -1,13 +1,9 @@
-﻿using LawnPaynes.Data;
-using LawnPaynes.Models;
-using LawnPaynes.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using LawnPaynes.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using LawnPaynes.Models;
 
 namespace LawnPaynes.Controllers
 {
@@ -44,17 +40,21 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Edit(CustomerLocationEditViewModel viewModel)
         {
+            var customerLocation = viewModel.CustomerLocation;
+            CustomerLocationValidator(customerLocation);
+
             if (ModelState.IsValid)
-            {
-                var customerLocation = viewModel.CustomerLocation;
-                
+            {                              
                 Context.Entry(customerLocation).State = EntityState.Modified;
                 Context.SaveChanges();
 
                 TempData["Message"] = "The address update was successful!";
-                return RedirectToAction("Detail", "Customer", new { id = customerLocation.CustomerId });
+                return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
+            viewModel.Customer = Context.Customers
+                .Where(c => c.CustomerId == viewModel.CustomerId)
+                .SingleOrDefault();
             return View(viewModel);
         }
 
@@ -72,7 +72,6 @@ namespace LawnPaynes.Controllers
             var viewModel = new CustomerLocationAddViewModel();
             {
                 viewModel.Customer = customer;
-                
             };
             
             return View(viewModel);
@@ -81,18 +80,23 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Add(CustomerLocationAddViewModel viewModel)
         {
+            var customerLocation = viewModel.CustomerLocation;
+            customerLocation.CustomerId = viewModel.CustomerId;
+
+            CustomerLocationValidator(customerLocation);
+
             if (ModelState.IsValid)
             {
-                var customerLocation = viewModel.CustomerLocation;
-                customerLocation.CustomerId = viewModel.CustomerId;
-                
-                Context.CustomerLocations.Add(customerLocation);
+               Context.CustomerLocations.Add(customerLocation);
                 Context.SaveChanges();
 
                 TempData["Message"] = "A new location at " + customerLocation.Address + " has been added!";
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
+            viewModel.Customer = Context.Customers
+                .Where(c => c.CustomerId == viewModel.CustomerId)
+                .SingleOrDefault();
             return View(viewModel);
         }
 
@@ -105,6 +109,21 @@ namespace LawnPaynes.Controllers
 
             TempData["Message"] = "The Location at " + customerLocation.Address + " has been deleted!";
             return RedirectToAction("Detail", "Customer", new { id = customerId });
+        }
+
+        private void CustomerLocationValidator(CustomerLocation customerLocation)
+        {
+            if (ModelState.IsValidField("CustomerLocation.Address") && ModelState.IsValidField("CustomerLocation.CustomerId"))
+            {
+                if (Context.CustomerLocations
+                    .Any(cl => cl.CustomerId == customerLocation.CustomerId &&
+                       cl.Address == customerLocation.Address))
+                {
+                    ModelState.AddModelError("CustomerLocation.Address", "This address already exists for this customer," +
+                        " or you have tried to edit an address and have not made any changes!");
+                }
+            }
+
         }
     }
 }

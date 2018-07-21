@@ -1,5 +1,6 @@
 ﻿using LawnPaynes.Models;
 using LawnPaynes.ViewModels;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,19 +12,17 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Delete(int customerLocationId, int serviceId, int customerId)
         {
-            var serviceCustomerLocation = Context.ServiceCustomerLocations.Find(customerLocationId, serviceId);
+            var serviceCustomerLocation = Context.ServiceCustomerLocations
+                .Where(scl => scl.CustomerLocationId == customerLocationId && scl.ServiceId == serviceId)
+                .Include(scl => scl.Service)
+                .Include(scl => scl.CustomerLocation)
+                .SingleOrDefault();
+
+            var serviceDeleted = serviceCustomerLocation.Service.ServiceName;
+            var address = serviceCustomerLocation.CustomerLocation.Address;
+
             Context.ServiceCustomerLocations.Remove(serviceCustomerLocation);
             Context.SaveChanges();
-
-            var serviceDeleted = Context.Services
-                .Where(s => s.ServiceId == serviceId)
-                .Select(s => s.ServiceName)
-                .SingleOrDefault();
-
-            var address = Context.CustomerLocations
-                .Where(cl => cl.CustomerLocationId == customerLocationId)
-                .Select(cl => cl.Address)
-                .SingleOrDefault();
 
             TempData["Message"] = serviceDeleted + " was removed from " + address + "!";
             return RedirectToAction("Detail", "Customer", new { id = customerId });
@@ -43,8 +42,7 @@ namespace LawnPaynes.Controllers
             var viewModel = new ServiceCustomerLocationAddViewModel()
             {
                 CustomerLocation = customerLocation,
-                CustomerId = customerLocation.CustomerId,
-              
+                CustomerId = customerLocation.CustomerId          
             };
 
             viewModel.Initialize(Context);
@@ -56,6 +54,7 @@ namespace LawnPaynes.Controllers
         {
             //Serverside Validation
             ServiceCustomerLocationValidator(viewModel);
+
             viewModel.CustomerLocation = Context.CustomerLocations
                     .Where(cl => cl.CustomerLocationId ==viewModel.CustomerLocationId)
                     .SingleOrDefault();
