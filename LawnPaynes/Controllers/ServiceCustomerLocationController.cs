@@ -1,4 +1,5 @@
-﻿using LawnPaynes.Models;
+﻿using LawnPaynes.Data.Queries;
+using LawnPaynes.Models;
 using LawnPaynes.ViewModels;
 using System.Data.Entity;
 using System.Linq;
@@ -30,9 +31,8 @@ namespace LawnPaynes.Controllers
 
         public ActionResult Add(int customerLocationId)
         {
-            var customerLocation = Context.CustomerLocations
-                .Where(cl => cl.CustomerLocationId == customerLocationId)
-                .SingleOrDefault();
+            var customerLocation = new GetCustomerLocationQuery(Context)
+                .Execute((int)customerLocationId, false);
 
             if (customerLocation == null)
             {
@@ -55,9 +55,8 @@ namespace LawnPaynes.Controllers
             //Serverside Validation
             ServiceCustomerLocationValidator(viewModel);
 
-            viewModel.CustomerLocation = Context.CustomerLocations
-                    .Where(cl => cl.CustomerLocationId ==viewModel.CustomerLocationId)
-                    .SingleOrDefault();
+            viewModel.CustomerLocation = new GetCustomerLocationQuery(Context)
+                .Execute((int)viewModel.CustomerLocationId, false);
 
             if (ModelState.IsValid)
             {

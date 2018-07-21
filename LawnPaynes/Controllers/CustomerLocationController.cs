@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
 using LawnPaynes.Models;
+using LawnPaynes.Data.Queries;
 
 namespace LawnPaynes.Controllers
 {
@@ -17,10 +18,8 @@ namespace LawnPaynes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var customerLocation = Context.CustomerLocations
-                .Where(cl => cl.CustomerLocationId == id)
-                .Include(cl =>cl.Customer)
-                .SingleOrDefault();
+            var customerLocation = new GetCustomerLocationQuery(Context)
+                .Execute((int)id, true);
 
             if (customerLocation == null)
             {
@@ -52,17 +51,16 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
-            viewModel.Customer = Context.Customers
-                .Where(c => c.CustomerId == viewModel.CustomerId)
-                .SingleOrDefault();
+            viewModel.Customer = new GetCustomerQuery(Context)
+                                    .Execute((int)viewModel.CustomerId, false);
+
             return View(viewModel);
         }
 
         public ActionResult Add(int customerId)
         {
-            var customer = Context.Customers
-                .Where(c => c.CustomerId == customerId)
-                .SingleOrDefault();
+            var customer = new GetCustomerQuery(Context)
+                                    .Execute((int)customerId, false);
 
             if (customer == null)
             {
@@ -81,6 +79,7 @@ namespace LawnPaynes.Controllers
         public ActionResult Add(CustomerLocationAddViewModel viewModel)
         {
             var customerLocation = viewModel.CustomerLocation;
+            //Need to inspect below
             customerLocation.CustomerId = viewModel.CustomerId;
 
             CustomerLocationValidator(customerLocation);
@@ -94,9 +93,9 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
-            viewModel.Customer = Context.Customers
-                .Where(c => c.CustomerId == viewModel.CustomerId)
-                .SingleOrDefault();
+            viewModel.Customer = new GetCustomerQuery(Context)
+                                    .Execute((int)viewModel.CustomerId, false);
+
             return View(viewModel);
         }
 

@@ -99,6 +99,8 @@
   <ItemGroup>
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ServiceCustomerLocationController.cs" />
+    <Compile Include="Data\Queries\GetCustomerLocationQuery.cs" />
+    <Compile Include="Data\Queries\GetCustomerQuery.cs" />
     <Compile Include="Migrations\201807081911425_ServicesAdded.cs" />
     <Compile Include="Migrations\201807081911425_ServicesAdded.Designer.cs">
       <DependentUpon>201807081911425_ServicesAdded.cs</DependentUpon>

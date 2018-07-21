@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using LawnPaynes.Data.Queries;
 
 namespace LawnPaynes.Controllers
 {
@@ -49,11 +50,8 @@ namespace LawnPaynes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var customer = Context.Customers
-            .Include(c => c.CustomerLocations)
-            .Include("CustomerLocations.ServiceCustomerLocations.Service")
-            .Where(c => c.CustomerId == id)
-            .SingleOrDefault();
+            var customer = new GetCustomerQuery(Context)
+                .Execute((int)id, true);
 
 
             if (customer == null)
@@ -73,29 +71,30 @@ namespace LawnPaynes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var customer = Context.Customers
-            .Where(c => c.CustomerId == id)
-            .SingleOrDefault();
+            var customer = new GetCustomerQuery(Context)
+                .Execute((int)id, false);
 
             if (customer == null)
             {
                 return HttpNotFound();
             }
-
-
+            
             return View(customer);
-
         }
 
         [HttpPost]
         public ActionResult Edit(Customer customer)
         {
-            Context.Entry(customer).State = EntityState.Modified;
-            Context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                Context.Entry(customer).State = EntityState.Modified;
+                Context.SaveChanges();
 
-            TempData["Message"] = customer.Name + " was successfully updated!";
-            return RedirectToAction("Detail", new { id = customer.CustomerId });
-            
+                TempData["Message"] = customer.Name + " was successfully updated!";
+                return RedirectToAction("Detail", new { id = customer.CustomerId });
+            }
+
+            return View(customer);
         }
 
 
