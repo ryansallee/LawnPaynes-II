@@ -9,7 +9,7 @@ namespace LawnPaynes.Models
     public class Service
     {
         public int ServiceId { get; set; }
-        [Required]
+        [Required, StringLength(100)]
         public string ServiceName { get; set; }
 
         public ICollection<ServiceCustomerLocation> ServiceCustomerLocations { get; } = new List<ServiceCustomerLocation>();

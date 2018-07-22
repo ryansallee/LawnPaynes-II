@@ -10,7 +10,7 @@ namespace LawnPaynes.Models
     public class CustomerLocation
     {
         public int CustomerLocationId { get; set; }
-        [Required]
+        [Required, StringLength(200)]
         public string Address { get; set; }
 
         public int CustomerId { get; set; }

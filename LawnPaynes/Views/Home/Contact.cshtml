@@ -24,7 +24,6 @@
             <!-- Set the Name input as the field to autofocus on page load -->
             @Html.TextBoxFor(m => m.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
             <br>
-            <span class="asterisk">*</span>
             @Html.LabelFor(m => m.Email, "Email :")
             <br>
             @Html.TextBoxFor(m => m.Email, new { @placeholder = "youremail@email.com", @id = "mail", @type = "email" })
@@ -39,7 +38,7 @@
         <div class="comments">
             @Html.LabelFor(m => m.Comments, "Comments :")
             <br>
-            @Html.TextAreaFor(m => m.Comments, new {@placeholder = "Type your comments here.", id="comments", @rows ="10" })
+            @Html.TextAreaFor(m => m.Comments, new {@placeholder = "Type your comments here. 2000 character max.", id="comments", @rows ="10" })
             <br>
         </div>
         <!-- Buttons to submit the contact form or reset their inputs -->

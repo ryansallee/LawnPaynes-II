@@ -133,6 +133,14 @@
     <Compile Include="Migrations\201807182226172_AddedServiceandCustomerLocationValidation.Designer.cs">
       <DependentUpon>201807182226172_AddedServiceandCustomerLocationValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807221527285_CustomerPhoneRegExUpdate.cs" />
+    <Compile Include="Migrations\201807221527285_CustomerPhoneRegExUpdate.Designer.cs">
+      <DependentUpon>201807221527285_CustomerPhoneRegExUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807221534134_CustomerPhoneRegExUpdate1.cs" />
+    <Compile Include="Migrations\201807221534134_CustomerPhoneRegExUpdate1.Designer.cs">
+      <DependentUpon>201807221534134_CustomerPhoneRegExUpdate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerLocationBaseViewModel.cs" />
@@ -326,6 +334,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807182226172_AddedServiceandCustomerLocationValidation.resx">
       <DependentUpon>201807182226172_AddedServiceandCustomerLocationValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221527285_CustomerPhoneRegExUpdate.resx">
+      <DependentUpon>201807221527285_CustomerPhoneRegExUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221534134_CustomerPhoneRegExUpdate1.resx">
+      <DependentUpon>201807221534134_CustomerPhoneRegExUpdate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
