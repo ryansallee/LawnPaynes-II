@@ -1,4 +1,7 @@
-﻿body {
+﻿/*This CSS is used for all of  Views in Home*/
+
+/*Base Styles*/
+body {
     background: linear-gradient(0deg, white, rgb(33, 128, 33));
     display: flex;
     flex-direction: column;
@@ -10,13 +13,16 @@ html, body {
 .wrapper {
     flex: 1 0 auto;
 }
+
+/*Font Styling*/
+h1 {
+    color: rgb(33, 128, 33);
+
+}
+
 h3 {
     font-family: 'Fjalla One', sans-serif;
     font-style: italic;
-}
-
-h1 {
-    color: rgb(33, 128, 33);
 }
 
 a,
@@ -25,6 +31,7 @@ a:visited {
     text-decoration: none;
 }
 
+/*Navbar Styles*/
 header {
     background: linear-gradient(0deg, white, rgb(76, 191, 236));
 }
@@ -56,6 +63,8 @@ h1 a {
 .navbar-toggler-icon {
     color: white;
 }
+
+/*Footer Styles*/
 .footer,
 .foot-name {
     display: flex;
@@ -89,8 +98,10 @@ h1 a {
     text-align: center;
 }
 
-
+/*Media Queries*/
+/*Desktop and Laptop*/
 @media (min-width: 1200px) {
+    /*Navbar Styles*/
     .navbar li {
             border-radius: 25px 100px 5px 100px;
             margin: auto 10px;

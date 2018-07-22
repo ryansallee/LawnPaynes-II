@@ -141,6 +141,10 @@
     <Compile Include="Migrations\201807221534134_CustomerPhoneRegExUpdate1.Designer.cs">
       <DependentUpon>201807221534134_CustomerPhoneRegExUpdate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807221740456_CommentsRequiredField.cs" />
+    <Compile Include="Migrations\201807221740456_CommentsRequiredField.Designer.cs">
+      <DependentUpon>201807221740456_CommentsRequiredField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceCustomerLocation.cs" />
     <Compile Include="ViewModels\CustomerLocationBaseViewModel.cs" />
@@ -340,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807221534134_CustomerPhoneRegExUpdate1.resx">
       <DependentUpon>201807221534134_CustomerPhoneRegExUpdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221740456_CommentsRequiredField.resx">
+      <DependentUpon>201807221740456_CommentsRequiredField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

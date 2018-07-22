@@ -10,22 +10,25 @@ namespace LawnPaynes.Controllers
 {
     public class CustomerLocationController : BaseController
     {
-
+        //Gets the Edit View
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
+            
+            //Query to Load the CustomerLocation
             var customerLocation = new GetCustomerLocationQuery(Context)
                 .Execute((int)id, true);
-
+            
             if (customerLocation == null)
             {
                 return HttpNotFound();
             }
 
+            //Set the CustomerLocation and Customer Properties of the CustomerLocationBaseViewModel
+            //so that the needed Customer CustomerLocation properties will be displayed in the View.
             var viewModel = new CustomerLocationEditViewModel()
             {
                 CustomerLocation = customerLocation,
@@ -40,6 +43,7 @@ namespace LawnPaynes.Controllers
         public ActionResult Edit(CustomerLocationEditViewModel viewModel)
         {
             var customerLocation = viewModel.CustomerLocation;
+            //Server side Validation to ensure that the Address of the CustomerLocation is updated.
             CustomerLocationValidator(customerLocation);
 
             if (ModelState.IsValid)
@@ -51,14 +55,17 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
+            //Reload the Customer to Display the name in the h2 of the Edit View if there is a ModelState Error
+            // from not updating the address of the CustomerLocation.
             viewModel.Customer = new GetCustomerQuery(Context)
                                     .Execute((int)viewModel.CustomerId, false);
-
             return View(viewModel);
         }
 
+        //Get the Add View.
         public ActionResult Add(int customerId)
         {
+            //Load the Customer. 
             var customer = new GetCustomerQuery(Context)
                                     .Execute((int)customerId, false);
 
@@ -67,6 +74,8 @@ namespace LawnPaynes.Controllers
                 return HttpNotFound();
             }
 
+            //Assign the customer variable to the Customer Property of the CustomerLocationBaseViewModel
+            // to display the Customer Name in the h2 of the Add View.
             var viewModel = new CustomerLocationAddViewModel();
             {
                 viewModel.Customer = customer;
@@ -79,9 +88,10 @@ namespace LawnPaynes.Controllers
         public ActionResult Add(CustomerLocationAddViewModel viewModel)
         {
             var customerLocation = viewModel.CustomerLocation;
-            //Need to inspect below
             customerLocation.CustomerId = viewModel.CustomerId;
 
+            //Server side validation to make sure that the Address of the CustomerLocation doesn't exist
+            //for this customer already. If so, throw a Model Error and return the Add Customer Location View.
             CustomerLocationValidator(customerLocation);
 
             if (ModelState.IsValid)
@@ -93,12 +103,16 @@ namespace LawnPaynes.Controllers
                 return RedirectToAction("Detail", "Customer", new { id = viewModel.CustomerId });
             }
 
+            //Reload the customer if there is a ModelState Error to display the Customer Name.
             viewModel.Customer = new GetCustomerQuery(Context)
                                     .Execute((int)viewModel.CustomerId, false);
 
             return View(viewModel);
         }
 
+        //Since this site is using a modal to delete CustomerLocations instead of a dedicated View,
+        //we first Get the CustomerLocation using Find() with the ID associated to that CustomerLocation, 
+        //and then remove the CustomerLocation.
         [HttpPost]
         public ActionResult Delete(int customerLocationId, int customerId)
         {
@@ -110,14 +124,21 @@ namespace LawnPaynes.Controllers
             return RedirectToAction("Detail", "Customer", new { id = customerId });
         }
 
+        //The CustomerLocationValidator method checks if there is a CustomerLocation that already exists in the CustomerLocation Table 
+        //to prevent duplicate CustomerLocations from being added to the Table. As well, this server side validation ensures that an
+        //address is being updated in the Edit CustomerLocation View.
         private void CustomerLocationValidator(CustomerLocation customerLocation)
         {
+            //Checks if there are any ModelState errors for the Address or CustomerId fields.
             if (ModelState.IsValidField("CustomerLocation.Address") && ModelState.IsValidField("CustomerLocation.CustomerId"))
             {
+                //Checks to see if there is a Combination of an Address and CustomerId in the CustomerLocation Table.
                 if (Context.CustomerLocations
                     .Any(cl => cl.CustomerId == customerLocation.CustomerId &&
                        cl.Address == customerLocation.Address))
                 {
+                    //Adds a ModelState Error to the Name field so that it can be displayed in the ValidationSummary
+                    //in the Add CustomerLocation or Edit View.
                     ModelState.AddModelError("CustomerLocation.Address", "This address already exists for this customer," +
                         " or you have tried to edit an address and have not made any changes!");
                 }

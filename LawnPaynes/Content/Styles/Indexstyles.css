@@ -1,6 +1,5 @@
 ﻿/* Base Styles */
 
-
 /* The basestyles.css sets the body display to flex. To prevent any issues with IE 10 and IE: 11
 with flex due to a bug with IE in respect to flex, the flex 1 0 auto is used. */
 
@@ -9,12 +8,9 @@ with flex due to a bug with IE in respect to flex, the flex 1 0 auto is used. */
     flex: 1 0 auto;
 }
 
-
 /* Message */
 
-
-/* This will set the style for the #alert div that will be supplied content byt the spring.js script */
-
+/* This will set the style for the #alert div that will be supplied content by the spring.js script */
 #alert {
     margin: 10px auto 0 auto;
     box-shadow: 5px 5px 5px rgb(104, 109, 109);
@@ -64,12 +60,8 @@ img[alt^="A recent"] {
     border-radius: 25px;
 }
 
-
 /* Media Queries */
-
-
 /*-----Tablet------*/
-
 @media (min-width: 640px) {
     /* Alert Styles */
     #alert {
@@ -89,11 +81,11 @@ img[alt^="A recent"] {
     img[alt^="A recent"] {
         width: 55%;
     }
-    /* Footer Styles */
 
 }
 
-@media (min-width: 990px) {
+/*Desktop and Laptop*/
+@media (min-width: 1200px) {
     /* Alert Styles */
     #alert {
         width: 92.5%;

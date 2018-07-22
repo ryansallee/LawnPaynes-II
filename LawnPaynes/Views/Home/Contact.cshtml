@@ -14,18 +14,19 @@
     {
         <h2>Contact Us!</h2>
         <p> Complete the form below so that we can contact you about your interest in becoming a customer!
-            If you are a new customer</p>
+            If you are already a customer, you can update your information below as well.</p>
         @Html.Partial("_Message")
         @Html.ValidationSummary("Please correct the following errors:", new { @class ="alert alert-danger"})
         <div class="inputs">
             @Html.HiddenFor(m => m.IsNew, new { @Value = "true" })
-            @Html.HiddenFor(m=> m.CustomerId)
+            @Html.HiddenFor(m => m.CustomerId)
             <span class="asterisk">*</span>
             @Html.LabelFor(m => m.Name, "Name :")
             <br>
             <!-- Set the Name input as the field to autofocus on page load -->
             @Html.TextBoxFor(m => m.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
             <br>
+            <span class="asterisk">*</span>
             @Html.LabelFor(m => m.Email, "Email :")
             <br>
             @Html.TextBoxFor(m => m.Email, new { @placeholder = "youremail@email.com", @id = "mail", @type = "email" })

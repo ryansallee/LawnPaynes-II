@@ -1,8 +1,6 @@
 /* Our_Work Styles */
 
-
 /* Slideshow Styles */
-
 
 /* Since the lawn_slide_show.js file will not execute any slideshow on viewports less than 640px in width
 the images in the slide container are flexed with the default flex direction and are stacked upon one another */
@@ -87,9 +85,7 @@ figcaption {
     }
 }
 
-
 /* Desktop and Laptop */
-
 @media (min-width: 1200px) {
     /* Decrease the width of the .slide-container further so that the .slide-container can be completely seen on a large viewport
     without scrolling. */

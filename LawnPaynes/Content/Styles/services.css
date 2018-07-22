@@ -1,8 +1,6 @@
 /* Services Styles */
 
-
 /* Base Styles */
-
 h2 {
     text-align: center;
     margin: 5px auto 5px auto;
@@ -20,16 +18,13 @@ h2 {
 
 
 /* Flex the service-wrap divs and set their flex directon to column on small screens to stack them on top of one another */
-
 .service-wrap {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
 }
 
-
 /* Content Styles */
-
 .lawn-care,
 .landscaping {
     background: white;
@@ -40,9 +35,8 @@ h2 {
     padding-bottom: 10px;
 }
 
-
 /* In the img selctor the height and width of the images are limited to 30% of the .lawn-care and .landscaping
-containers so that the images do not display the list that are floated right*/
+containers so that the images do not display on the lists that are floated right*/
 
 img {
     display: block;
@@ -62,12 +56,9 @@ img {
     margin-right: 20px;
 }
 
-
 /* Media Queries */
 
-
 /* Tablet */
-
 @media(min-width: 640px) {
     /* Base Styles */
     h2 {
@@ -107,6 +98,7 @@ img {
     }
 }
 
+/*Desktop and Laptop*/
 @media(min-width: 1200px) {
     /* Base Styles */
     h2 {

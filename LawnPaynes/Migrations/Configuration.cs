@@ -23,7 +23,8 @@ namespace LawnPaynes.Migrations
                 Name = "John Doe",
                 IsNew = true,
                 PhoneNumber = "(345)-678-1234",
-                Email = "john@google.com"
+                Email = "john@google.com",
+                Comments = "Test a comment!"
             };
 
             context.Customers.AddOrUpdate(customer1);
@@ -35,7 +36,8 @@ namespace LawnPaynes.Migrations
                 Name = "Jane Doe",
                 IsNew = false,
                 PhoneNumber = "(800)-123-4567",
-                Email = "jane@google.com"
+                Email = "jane@google.com",
+                Comments = "Test a comment again!"
             };
 
             context.Customers.AddOrUpdate(customer2);

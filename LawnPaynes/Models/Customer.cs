@@ -18,9 +18,9 @@ namespace LawnPaynes.Models
         [Required]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$",ErrorMessage = "The phone number provided is not a valid phone number.")]
         public string PhoneNumber { get; set; }
-        [StringLength(2000, ErrorMessage="2000 characters is the maximum length.")]
+        [Required, StringLength(2000, ErrorMessage="2000 characters is the maximum length.")]
         public string Comments { get; set; }
-        [EmailAddress(ErrorMessage = "The email provided is not a valid email address")]
+        [Required, EmailAddress(ErrorMessage = "The email provided is not a valid email address")]
         public string Email { get; set; }
 
         public ICollection<CustomerLocation> CustomerLocations { get; set; }
