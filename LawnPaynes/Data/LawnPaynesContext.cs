@@ -11,7 +11,7 @@ namespace LawnPaynes.Data
     public class LawnPaynesContext : DbContext
     {
         public LawnPaynesContext()
-            : base("name=LawnPaynesContext")
+            : base("name=LawnPaynes")
         {
         }
 
