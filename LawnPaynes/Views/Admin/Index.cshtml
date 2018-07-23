@@ -1,7 +1,24 @@
-﻿
-@{
-    ViewBag.Title = "Customer Manager";
+﻿@{
+    ViewBag.Title = "Lawn Paynes Customer Manager";
 }
 
+<h2 class="text-center">@ViewBag.Title</h2>
 
+<div class="container col-11 col-xl-8 mt-4">
+    <div class="row justify-content-center ">
+        <p>
+            Welcome to the Lawn Paynes Customer Manager! Please click on the Customer or Service Links in the upper right
+            to manage to start managing Lawn Paynes' Customers and Services or use the buttons below to add a Customer or
+            a Service!
+        </p>
+    </div>
+</div>
 
+<div class="container mt-2">
+    <div class="row text-center">
+        <div class="col-12">
+            @Html.ActionLink("Add Customer", "Add", "Customer", null, new { @class = "btn btn-primary btn mr-md-5" })
+            @Html.ActionLink("Add Service", "Add", "Service", null, new { @class = "btn btn-primary btn ml-md-5" })
+        </div>
+    </div>
+</div>
