@@ -2,28 +2,34 @@
 
 @section Styles{
     <link href="@Url.Content("~/Content/Styles/contact.css")" rel="stylesheet" type="text/css" />
-    }
+}
 
 @{
     ViewBag.Title = "Contact Us";
 }
 
-<!-- The contactForm div will contain a contact form to be sent to the local db to persist basic customer information. -->
+@*The contactForm div will contain a contact form to be sent to the local db to persist basic customer information.*@
 <div class="contactForm">
     @using (Html.BeginForm())
     {
         <h2>Contact Us!</h2>
-        <p> Complete the form below so that we can contact you about your interest in becoming a customer!
-            If you are already a customer, you can update your information below as well.</p>
+        <p>
+            Complete the form below so that we can contact you about your interest in becoming a customer!
+            If you are already a customer, you can update your information below as well.
+        </p>
+        @* TempData messages are delivered from ActionResult methods in the Controllers. *@
         @Html.Partial("_Message")
-        @Html.ValidationSummary("Please correct the following errors:", new { @class ="alert alert-danger"})
+
+        @*ModelState errors from client side validation are displayed here*@
+        @Html.ValidationSummary("Please correct the following errors:", new { @class = "alert alert-danger" })
         <div class="inputs">
+
             @Html.HiddenFor(m => m.IsNew, new { @Value = "true" })
             @Html.HiddenFor(m => m.CustomerId)
             <span class="asterisk">*</span>
             @Html.LabelFor(m => m.Name, "Name :")
             <br>
-            <!-- Set the Name input as the field to autofocus on page load -->
+            @*Set the Name input as the field to autofocus on page load*@
             @Html.TextBoxFor(m => m.Name, new { @placeholder = "Your Name", @autofocus = "autofocus", @id = "name" })
             <br>
             <span class="asterisk">*</span>
@@ -45,10 +51,10 @@
             @Html.TextAreaFor(m => m.Comments, new { @placeholder = "Type your comments here. 2000 character max.", id = "comments", @rows = "10" })
             <br>
         </div>
-        <!-- Buttons to submit the contact form or reset their inputs -->
+        @* Buttons to submit the contact form or reset their inputs*@
         <div class="buttons">
             <input type="reset">
             <input type="Submit">
-        </div>     
+        </div>
     }
-    </div>
+</div>

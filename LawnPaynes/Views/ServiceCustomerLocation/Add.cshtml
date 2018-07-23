@@ -7,6 +7,7 @@
 <br />
 @using (Html.BeginForm())
 {
+    @* Set the CustomerId property of the CustomerId in the viewmodel for the redirect to the associated Customer's Detail *@
     @Html.HiddenFor(m => m.CustomerId, new { @value = Model.CustomerId})
     <div class="container">
         <div class="form-group row justify-content-center">

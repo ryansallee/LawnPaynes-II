@@ -2,14 +2,16 @@
 
 <html>
 <head>
-    
+    <title>@ViewBag.Title</title>
+    @*The format detection will ensure Edge does not try to allow the telephone number to launch Skype or other phone programs*@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#218021">
+    @*CSS stylesheets for the shared partial view.*@
     <link rel="stylesheet" href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Styles/AdminBaseStyles.css")" />
     <link href="@Url.Content("https://fonts.googleapis.com/css?family=Fjalla+One")" rel="stylesheet">
-    <title>@ViewBag.Title</title>
+
 </head>
 <body>
     <div class="wrapper">
@@ -46,10 +48,10 @@
         </div>
     </footer>
 
-
+    @* JQuery and Bootstrap refrences since these libraries are used on all Views. *@
     <script src="@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    @RenderSection("Scripts", false)
+
 </body>
 </html>

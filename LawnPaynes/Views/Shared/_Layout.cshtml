@@ -1,23 +1,25 @@
-﻿<!DOCTYPE html>
+﻿@*Sharedview for the Home Views*@
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <!-- The format detection will ensure Edge does not try to allow the telephone number to launch Skype or other phone programs -->
+     @*The format detection will ensure Edge does not try to allow the telephone number to launch Skype or other phone programs*@ 
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#218021">
-    <!-- CSS stylesheets for the page -->
+     @*CSS stylesheets for the shared partial view. Render Section is used so that View-specific sheets can be used*@ 
     <link rel="stylesheet" href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/basestyles.css")" />
     @RenderSection("Styles", false)
-    <!-- This is the reference to use the Fjalla One font for <h1> and <h3> tags that contain the name of the business   -->
+     @*This is the reference to use the Fjalla One font for <h1> and <h3> tags that contain the name of the business*@   
     <link href="@Url.Content("https://fonts.googleapis.com/css?family=Fjalla+One")" rel="stylesheet">
 
 </head>
 <body>
     <div class="wrapper">
-        <!-- Header with nav bar. -->
+         @*Header with nav bar.*@ 
         <header>
             <nav class="navbar navbar-expand-xl navbar-custom">
                 <h1 class="navbar-brand">@Html.ActionLink("Lawn Paynes", "Index", "Home")</h1>
@@ -38,7 +40,7 @@
 
         @RenderBody()
     </div>
-    <!-- Footer -->
+     @*Footer*@ 
     <footer class="footer">
         <h3 class="foot-name">Lawn Paynes</h3>
         <div class="foot-nav">
@@ -50,6 +52,7 @@
             <p class="cool-stuff">@Html.ActionLink("Cool Stuff", "Index", "Admin")</p>
         </div>
     </footer>
+    @* JQuery and Bootstrap refrences since these libraries are used on all Views. RenderScripts() allows view-specific scripts.*@
     <script src="@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
