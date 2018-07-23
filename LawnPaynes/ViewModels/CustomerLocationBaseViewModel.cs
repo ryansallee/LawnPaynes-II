@@ -1,12 +1,9 @@
 ﻿using LawnPaynes.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using LawnPaynes.Data;
 
 namespace LawnPaynes.ViewModels
 {
+    //This a base ViewModel for the CustomerLocatiom Add and Edit. The Customer and CustomerLocation properties
+    //are used in both models and helps this site adhere to the DRY principle.
     public abstract class CustomerLocationBaseViewModel
     {
         public Customer Customer { get; set; } = new Customer();

@@ -1,13 +1,10 @@
 ﻿using LawnPaynes.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LawnPaynes.ViewModels
 {
     public class CustomerLocationEditViewModel : CustomerLocationBaseViewModel
     {
+        //Bind the CustomerLocationId and CustomerID properties of the CustomerLocation to the viewModel.
         public int Id
         {
             get { return CustomerLocation.CustomerLocationId; }
