@@ -7,6 +7,8 @@ using System.Data.Entity;
 
 namespace LawnPaynes.Data.Queries
 {
+    //This class contains an Execute Query to get a CustomerLocation. Since this query is used several times in the
+    //Controllers, this class was made to better follow the DRY principle.
     public class GetCustomerLocationQuery
     {
         private LawnPaynesContext _context = null;
@@ -16,8 +18,10 @@ namespace LawnPaynes.Data.Queries
             _context = context;
         }
 
+        //Method to execute a query to load a CustomerLocation.
         public CustomerLocation Execute(int id, bool includeCustomer)
         {
+            //Load the CustomerLocation and Customer when includeCustomer is true.
             if(includeCustomer)
             {
                 return _context.CustomerLocations
@@ -25,6 +29,7 @@ namespace LawnPaynes.Data.Queries
                 .Include(cl => cl.Customer)
                 .SingleOrDefault();
             }
+            //Load only the CustomerLocation.
             else
             {
                 return _context.CustomerLocations

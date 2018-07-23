@@ -17,11 +17,11 @@ namespace LawnPaynes.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             //Query to Load the CustomerLocation
             var customerLocation = new GetCustomerLocationQuery(Context)
-                .Execute((int)id, true);
-            
+                .Execute(id: (int)id, includeCustomer: true);
+
             if (customerLocation == null)
             {
                 return HttpNotFound();
@@ -35,7 +35,7 @@ namespace LawnPaynes.Controllers
                 Customer = customerLocation.Customer
             };
 
-             return View(viewModel);
+            return View(viewModel);
 
         }
 
@@ -47,7 +47,7 @@ namespace LawnPaynes.Controllers
             CustomerLocationValidator(customerLocation);
 
             if (ModelState.IsValid)
-            {                              
+            {
                 Context.Entry(customerLocation).State = EntityState.Modified;
                 Context.SaveChanges();
 
@@ -67,7 +67,7 @@ namespace LawnPaynes.Controllers
         {
             //Load the Customer. 
             var customer = new GetCustomerQuery(Context)
-                                    .Execute((int)customerId, false);
+                                    .Execute(id: (int)customerId, includeRelatedEntities: false);
 
             if (customer == null)
             {
@@ -80,7 +80,7 @@ namespace LawnPaynes.Controllers
             {
                 viewModel.Customer = customer;
             };
-            
+
             return View(viewModel);
         }
 
@@ -96,7 +96,7 @@ namespace LawnPaynes.Controllers
 
             if (ModelState.IsValid)
             {
-               Context.CustomerLocations.Add(customerLocation);
+                Context.CustomerLocations.Add(customerLocation);
                 Context.SaveChanges();
 
                 TempData["Message"] = "A new location at " + customerLocation.Address + " has been added!";
@@ -129,15 +129,15 @@ namespace LawnPaynes.Controllers
         //address is being updated in the Edit CustomerLocation View.
         private void CustomerLocationValidator(CustomerLocation customerLocation)
         {
-            //Checks if there are any ModelState errors for the Address or CustomerId fields.
+            //Check if there are any ModelState errors for the Address or CustomerId fields.
             if (ModelState.IsValidField("CustomerLocation.Address") && ModelState.IsValidField("CustomerLocation.CustomerId"))
             {
-                //Checks to see if there is a Combination of an Address and CustomerId in the CustomerLocation Table.
+                //Check to see if there is a Combination of an Address and CustomerId in the CustomerLocation Table.
                 if (Context.CustomerLocations
                     .Any(cl => cl.CustomerId == customerLocation.CustomerId &&
                        cl.Address == customerLocation.Address))
                 {
-                    //Adds a ModelState Error to the Name field so that it can be displayed in the ValidationSummary
+                    //Add a ModelState Error to the Name field so that it can be displayed in the ValidationSummary
                     //in the Add CustomerLocation or Edit View.
                     ModelState.AddModelError("CustomerLocation.Address", "This address already exists for this customer," +
                         " or you have tried to edit an address and have not made any changes!");

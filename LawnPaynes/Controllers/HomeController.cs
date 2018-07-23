@@ -40,7 +40,8 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Contact(Customer customer)
         {
-            //Only client side validation from the Customer Model
+            //Only client side validation from the Customer Model is being checked to make sure the required fields have
+            //data and that the data is in the appropriate format.
             if (ModelState.IsValid)
             {
                 //The UpdateACustomer() method checks to see if an existing customer is making an update to their information.

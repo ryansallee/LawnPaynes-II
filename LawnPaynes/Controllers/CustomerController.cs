@@ -82,7 +82,7 @@ namespace LawnPaynes.Controllers
 
             //Get the Customer and the Customer only.
             var customer = new GetCustomerQuery(Context)
-                .Execute((int)id, false);
+                .Execute(id: (int)id, includeRelatedEntities: false);
 
             if (customer == null)
             {
@@ -126,16 +126,16 @@ namespace LawnPaynes.Controllers
         //customers from being added to the Table.
         private void CustomerValidator(Customer customer)
         {
-            //Checks if there are any ModelState errors for the Name, Email, or Phone Number fields.
+            //Check if there are any ModelState errors for the Name, Email, or Phone Number fields.
             if (ModelState.IsValidField("Name") && ModelState.IsValidField("Email") && ModelState.IsValidField("PhoneNumber"))
             {
-                //Checks to see if there is a Combination of Customer, Name, and Email in the Customer Table
+                //Check to see if there is a Combination of Customer, Name, and Email in the Customer Table
                 if (Context.Customers
                     .Any(c => c.Name == customer.Name &&
                         c.Email == customer.Email &&
                         c.PhoneNumber == customer.PhoneNumber))
                 {
-                    //Adds a ModelState Error to the Name field so that it can be displayed in the ValidationSummary
+                    //Add a ModelState Error to the Name field so that it can be displayed in the ValidationSummary
                     //in the Add Customer View.
                     ModelState.AddModelError("Name", "This combination of Email, Phone Number, and Customer Name already exists!");
                 }
