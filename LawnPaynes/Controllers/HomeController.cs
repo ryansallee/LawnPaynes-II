@@ -40,8 +40,11 @@ namespace LawnPaynes.Controllers
         [HttpPost]
         public ActionResult Contact(Customer customer)
         {
+            //Only client side validation from the Customer Model
             if (ModelState.IsValid)
             {
+                //The UpdateACustomer() method checks to see if an existing customer is making an update to their information.
+                //If it is true, the Customer Entity is updated and a different TempData message is passed to the Contact View.
                 if (UpdateACustomer(customer))
                 {
                     TempData["Message"] = "Thank you for updating your information with us! We will get in touch with you shortly!";
@@ -49,6 +52,7 @@ namespace LawnPaynes.Controllers
                 }
                 else
                 {
+                    //Adds a customer if the UpdateAcustomer method returns false.
                     Context.Customers.Add(customer);
                     Context.SaveChanges();
 
@@ -60,15 +64,21 @@ namespace LawnPaynes.Controllers
             return View(customer);
         }
 
+        //This method checks to see if any of the Customer information already exists by using Any() to see if a Customer Name
+        // and Email or Customer Name and PhoneNumber exists in the customer Table. If so, the existing Customer Entity will be 
+        // updated and the method returns return. If not, the method will return false to execute a Customer Add in the else clause.
         private bool UpdateACustomer(Customer customer)
-        {            
-                if (Context.Customers
-                    .Any(c => c.Name == customer.Name &&
-                        c.Email == customer.Email) ||
-                    Context.Customers
-                    .Any(c => c.Name == customer.Name &&
-                        c.PhoneNumber == customer.PhoneNumber))
-                {
+        {
+            //Check to see if a Customer Name and Email or Customer Name and PhoneNumber combination exists in the Customer Table.
+            if (Context.Customers
+                .Any(c => c.Name == customer.Name &&
+                    c.Email == customer.Email) ||
+                Context.Customers
+                .Any(c => c.Name == customer.Name &&
+                    c.PhoneNumber == customer.PhoneNumber))
+            {
+                //If a combination exists, Get the CustomerID of the Customer and set the ID of the customer variable so that the
+                //customer can be updated and the method can return true.
                 var customerIdUpdate = Context.Customers
                         .Where(c => c.Name == customer.Name &&
                                c.Email == customer.Email ||
@@ -77,15 +87,15 @@ namespace LawnPaynes.Controllers
                         .Select(c => c.CustomerId)
                         .SingleOrDefault();
 
-                    customer.CustomerId = customerIdUpdate;
+                customer.CustomerId = customerIdUpdate;
 
-                    Context.Entry(customer).State = EntityState.Modified;
-                    Context.SaveChanges();
+                Context.Entry(customer).State = EntityState.Modified;
+                Context.SaveChanges();
 
-                    return true;
-                 }
+                return true;
+            }
             return false;
-            
+
         }
 
     }
