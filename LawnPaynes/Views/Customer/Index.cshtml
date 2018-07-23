@@ -28,6 +28,7 @@
             </tr>
         </thead>
         <tbody>
+            @* Iterate through each customer in the List of Customers and display their basic information in this table. *@
             @foreach (var customer in Model)
             {
                 <tr class="bg-light">
@@ -46,6 +47,7 @@
                     <td>
                         @Html.ActionLink("Detail", "Detail", new { id = customer.CustomerId }, new { @class = "btn btn-primary btn-xs margin-right" })
                         @Html.ActionLink("Edit", "Edit", new { id = customer.CustomerId }, new { @class = "btn btn-primary btn-xs margin-right" })
+                        @* Delete Customer Modal *@
                         <a data-toggle="modal" href="#deleteCustomerModal+@customer.CustomerId" class="btn btn-danger btn-xs margin-right">Delete</a>
                         <div class="modal" id="deleteCustomerModal+@customer.CustomerId" tabindex="-1" role="dialog">
                             <div class="modal-dialog">

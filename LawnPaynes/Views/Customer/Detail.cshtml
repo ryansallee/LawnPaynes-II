@@ -9,9 +9,11 @@
 
 <div class="d-flex justify-content-center">
     <div class="col-11">
+        @* TempData Messages Delivered from Controller ActionResult methods *@
         @Html.Partial("_Message")
     </div>
 </div>
+@* Display all of the properties of a Customer *@
 <div class="container col-11 col-xl-6 text-center bg-light rounded border">
     <div class="row justify-content-center ">
         <div class="col-5 col-xl-6">
@@ -104,6 +106,7 @@
 <br />
 <div class="container col-11 col-xl-8">
     <div class="row justify-content-center pad-top">
+        @* Iterate through each CustomerLocation attached to this Customer's view model *@
         @foreach (var customerLocation in Model.CustomerLocations)
         {
             <div class="card text-center">
@@ -121,11 +124,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @* Iterate through each ServiceCustomerLocation attached to the Customer Location
+                                so that the Service Name can be displayed*@
                             @foreach (var locationService in customerLocation.ServiceCustomerLocations)
                             {
                                 <tr>
                                     <td>@locationService.Service.ServiceName</td>
                                     <td>
+                                        @* Modal to delete a ServiceCustomerLocation *@
                                         <a data-toggle="modal" href="#deleteServiceCustomerLocationModal+@locationService.ServiceId+@locationService.CustomerLocationId" class="btn btn-danger btn-sm margin-right">Delete Service</a>
                                         <div class="modal" id="deleteServiceCustomerLocationModal+@locationService.ServiceId+@locationService.CustomerLocationId" tabindex="-1" role="dialog">
                                             <div class="modal-dialog">
@@ -159,6 +165,7 @@
 
                     @Html.ActionLink("Edit Address", "Edit", "CustomerLocation", new { id = customerLocation.CustomerLocationId }, new { @class = "btn btn-primary margin-right" })
                     @Html.ActionLink("Add Service", "Add", "ServiceCustomerLocation", new { customerLocationId = customerLocation.CustomerLocationId }, new { @class = "btn btn-success margin-right" })
+                    @* Modal to delete a CustomerLocation *@
                     <a data-toggle="modal" href="#deleteCustomerLocationModal+@customerLocation.CustomerLocationId" class="btn btn-danger margin-right">Delete Location</a>
                     <div class="modal" id="deleteCustomerLocationModal+@customerLocation.CustomerLocationId" tabindex="-1" role="dialog">
                         <div class="modal-dialog">

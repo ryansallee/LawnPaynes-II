@@ -11,11 +11,14 @@
     <div class="container">
         <div class="form-group row justify-content-center">
             <div class="col-10 col-sm-8 col-lg-6">
+                @* ModelState errors from client or server side validation are displayed here. *@
                 @Html.ValidationSummary("Please correct the following errors:", new { @class = "alert alert-danger" })
             </div>
         </div>
     </div>
     @Html.Partial("_CustomerForm")
+
+    @* Ensures that the CustomerId that was submitted into the GET for the Edit Controller is submitted. *@
     @Html.HiddenFor(m => m.CustomerId)
     <br />
     <div class="container">
