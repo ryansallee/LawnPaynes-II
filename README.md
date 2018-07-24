@@ -20,6 +20,7 @@ that is seeded is as follows:
 	2. Phone Number: (345)-678-1234
 	3. Email: john@google.com
 	4. Comments: Test a comment!
+
 4.To use all of the CRUD functions of the site, please navigate to the link entitled "Cool Stuff" as this link takes a user to the 
 administrative portion of the site. A future enhancement to the site would be authorization to the site before it would be deployed
 to a production environment.
