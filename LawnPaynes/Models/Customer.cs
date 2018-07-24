@@ -19,7 +19,7 @@ namespace LawnPaynes.Models
         public bool IsNew { get; set; }
         [Display(Name = "Phone Number")]
         [Required]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$",ErrorMessage = "The phone number provided is not a valid phone number.")]
+        [RegularExpression(@"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$", ErrorMessage = "The phone number provided is not a valid phone number.")]
         public string PhoneNumber { get; set; }
         [Required, StringLength(2000, ErrorMessage="2000 characters is the maximum length.")]
         public string Comments { get; set; }
