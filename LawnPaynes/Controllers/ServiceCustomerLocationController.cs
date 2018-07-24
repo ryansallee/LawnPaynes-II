@@ -14,6 +14,7 @@ namespace LawnPaynes.Controllers
         //we first Get the CustomerLocation by its composite key of customerLocationId and ServiceID,
         //but will also egarly load its associated Service and CustomerLocation Entities.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int customerLocationId, int serviceId, int customerId)
         {
             var serviceCustomerLocation = Context.ServiceCustomerLocations
@@ -59,6 +60,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(ServiceCustomerLocationAddViewModel viewModel)
         {
             //Server side validation to make sure the ServiceCustomerLocation does not already exist. If not,

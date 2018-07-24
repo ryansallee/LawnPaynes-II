@@ -23,7 +23,7 @@
         @*ModelState errors from client side validation are displayed here*@
         @Html.ValidationSummary("Please correct the following errors:", new { @class = "alert alert-danger" })
         <div class="inputs">
-
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.IsNew, new { @Value = "true" })
             @Html.HiddenFor(m => m.CustomerId)
             <span class="asterisk">*</span>

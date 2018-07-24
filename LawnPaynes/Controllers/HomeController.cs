@@ -38,6 +38,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Contact(Customer customer)
         {
             //Only client side validation from the Customer Model is being checked to make sure the required fields have

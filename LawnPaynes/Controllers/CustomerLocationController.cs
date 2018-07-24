@@ -40,6 +40,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(CustomerLocationEditViewModel viewModel)
         {
             var customerLocation = viewModel.CustomerLocation;
@@ -85,6 +86,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(CustomerLocationAddViewModel viewModel)
         {
             var customerLocation = viewModel.CustomerLocation;
@@ -114,6 +116,7 @@ namespace LawnPaynes.Controllers
         //we first Get the CustomerLocation using Find() with the ID associated to that CustomerLocation, 
         //and then remove the CustomerLocation.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int customerLocationId, int customerId)
         {
             var customerLocation = Context.CustomerLocations.Find(customerLocationId);

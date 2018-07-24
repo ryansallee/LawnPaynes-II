@@ -45,6 +45,7 @@
                                         </div>
 
                                         <div class="modal-body">
+                                            @Html.AntiForgeryToken()
                                             Are you sure you want to delete @service.ServiceName? This service cannot be restored to the service list.
                                         </div>
 

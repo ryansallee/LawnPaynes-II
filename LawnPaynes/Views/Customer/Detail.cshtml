@@ -146,6 +146,7 @@
                                                         </div>
 
                                                         <div class="modal-body">
+                                                            @Html.AntiForgeryToken()
                                                             Are you sure you want to remove @locationService.Service.ServiceName from this location for @Model.Name? This service will have to be added to this customer's location again.
                                                         </div>
 
@@ -180,6 +181,7 @@
                                     </div>
 
                                     <div class="modal-body">
+                                        @Html.AntiForgeryToken()
                                         Are you sure you want to delete this location for @Model.Name? It cannot be restored to @Model.Name.
                                     </div>
 

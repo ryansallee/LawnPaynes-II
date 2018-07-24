@@ -64,6 +64,7 @@
 
                                         <div class="modal-body">
                                             Are you sure you want to delete @customer.Name? This customer cannot be restored to the Customer List.
+                                            @Html.AntiForgeryToken()
                                         </div>
 
                                         <div class="modal-footer">

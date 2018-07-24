@@ -26,6 +26,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(Service service)
         {
             //Server side validation to ensure that the Service does not already exist. If so, a ModelState error
@@ -66,6 +67,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Service service)
         {
             //Server side validation to ensure that the Service does not already exist. If so, a ModelState error
@@ -88,6 +90,7 @@ namespace LawnPaynes.Controllers
         //Since this site is using a modal to delete Servvices instead of a dedicated View,
         //we first Get the customer using Find() with the ID associated to that customer, and then remove the customer.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             var service = Context.Services.Find(id);

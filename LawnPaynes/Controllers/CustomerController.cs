@@ -27,6 +27,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(Customer customer)
         {
             //Server side validation to ensure that duplicate customers are not added by throwing a model state error.
@@ -93,6 +94,7 @@ namespace LawnPaynes.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Customer customer)
         {
             //Check if the fields have valid input formats and required fields have data. If not,
@@ -112,6 +114,7 @@ namespace LawnPaynes.Controllers
         //Since this site is using a modal to delete Customers instead of a dedicated View,
         //we first Get the customer using Find() with the ID associated to that customer, and then remove the customer.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             var customer = Context.Customers.Find(id);

@@ -3,6 +3,7 @@
 @* Form to be used for the Service Add and Edit Views *@
 <div class="container">
     <div class="form-group row justify-content-center">
+        @Html.AntiForgeryToken()
         @Html.LabelFor(m => m.ServiceName, "Service :", new { @class = "col-10 col-sm-2 col-form-label" })
         <div class="col-10 col-sm-4 col-lg-3">
             @Html.TextBoxFor(m => m.ServiceName, new { @class = "form-control form-control-lg" })
