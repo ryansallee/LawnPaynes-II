@@ -1,8 +1,5 @@
-using System;
 using System.Data.Entity;
 using LawnPaynes.Models;
-using System.Linq;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 
 namespace LawnPaynes.Data
