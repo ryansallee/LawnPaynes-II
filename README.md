@@ -14,7 +14,7 @@ about being a customer or an existing customer can submit changes to their infor
 test data by using the command update-database.
 3. The default page for the project is the customer-facing Home section's Index page. Interested customers can add their information
 to the Lawn Paynes' database via the Contact Us page. As well, an existing customer's information in the database can be updated as long
-as the entry matches a Customer Name and Email or Customer Name and Phone Number combination. To seethe update in action, an example customer
+as the entry matches a Customer Name and Email or Customer Name and Phone Number combination. To see the update in action, an example customer
 that is seeded is as follows:
 	1. Name: John Doe
 	2. Phone Number: (345)-678-1234
