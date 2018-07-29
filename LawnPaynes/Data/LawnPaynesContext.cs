@@ -13,7 +13,7 @@ namespace LawnPaynes.Data
         {
         }
 
-        //DbSets for tjhe 4 models used for this site.
+        //DbSets for the 4 models used for this site.
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerLocation> CustomerLocations { get; set; }
         public virtual DbSet<Service> Services { get; set; }
